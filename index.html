@@ -222,13 +222,6 @@ input:checked+.sl2::before{transform:translateX(20px)}
 </head>
 <body>
 
-<!-- TOPBAR MÓVIL -->
-<div class="mob-top">
-  <span class="mob-brand" id="mobBrand">SYNAPSE</span>
-  <button class="mob-menu-btn" onclick="toggleSidebar()">☰</button>
-</div>
-<div class="sb-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
-
 <!-- LOGIN -->
 <div id="LS">
   <div class="lb">
@@ -280,7 +273,8 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="ph">
         <div><div class="pt">Dashboard <span>Central</span></div><div class="ps" id="dDate"></div></div>
         <div class="ha">
-          <a class="link-pub" id="linkPub" href="ai-editor.html" target="_blank">🤖 Ver página pública de clientes ↗</a>
+          <a class="link-pub" href="menu.html" style="background:rgba(0,240,255,.1);border-color:rgba(0,240,255,.3);color:var(--cy)">☰ Menú</a>
+          <a class="link-pub" id="linkPub" href="https://synapse-cheats.github.io/AI-SYNAPSE/" target="_blank">🤖 Editor IA ↗</a>
         </div>
       </div>
       <div class="sg">
@@ -613,6 +607,10 @@ function doLogin() {
     else if (!DEF_CFG.apiKey.startsWith('TU_')) initFB(DEF_CFG);
     const pubUrl = localStorage.getItem('nx_pubUrl') || 'https://synapse-cheats.github.io/AI-SYNAPSE/';
     document.getElementById('linkPub').href = pubUrl;
+
+    // Ir a sección si viene del menu.html
+    const goSec = sessionStorage.getItem('goSec');
+    if (goSec) { sessionStorage.removeItem('goSec'); setTimeout(()=>goSec(goSec), 400); }
   } else {
     document.getElementById('lE').style.display = 'block';
     setTimeout(()=>document.getElementById('lE').style.display='none', 3000);
