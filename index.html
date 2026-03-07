@@ -163,6 +163,50 @@ input:checked+.sl2::before{transform:translateX(20px)}
 .link-pub{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(189,0,255,.1);border:1px solid rgba(189,0,255,.3);border-radius:10px;color:var(--pu);font-size:.85rem;font-weight:700;text-decoration:none;transition:.15s}
 .link-pub:hover{background:rgba(189,0,255,.2)}
 
+/* ── MENÚ OVERLAY ── */
+#menuOverlay{display:none;position:fixed;inset:0;z-index:9999;
+  background:var(--bg);overflow-y:auto;
+  background-image:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,240,255,.07) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 40% at 80% 90%,rgba(0,255,136,.05) 0%,transparent 60%)}
+#menuOverlay.open{display:block}
+.mo-hd{position:sticky;top:0;z-index:10;background:rgba(6,8,16,.95);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);
+  padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.mo-brand{font-size:1.1rem;font-weight:800;letter-spacing:3px;
+  background:linear-gradient(135deg,var(--cy),var(--gr));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mo-close{background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.25);
+  border-radius:8px;color:var(--cy);font-size:.82rem;font-weight:700;
+  padding:8px 14px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:.15s}
+.mo-close:hover{background:rgba(0,240,255,.2)}
+.mo-wrap{padding:24px 16px 40px;max-width:600px;margin:0 auto}
+.mo-title{font-size:1.4rem;font-weight:800;margin-bottom:4px}
+.mo-title span{color:var(--cy)}
+.mo-sub{font-size:.82rem;color:var(--mu);margin-bottom:28px}
+.mo-sec{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--mu);margin-bottom:10px;padding-left:4px}
+.mo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.mo-card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;
+  padding:20px 16px;cursor:pointer;color:var(--tx);
+  display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  transition:.18s;position:relative;overflow:hidden;user-select:none}
+.mo-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.mo-card:hover,.mo-card:active{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.mo-card .ic{font-size:2rem;line-height:1}
+.mo-card .nm{font-size:.95rem;font-weight:700}
+.mo-card .ds{font-size:.72rem;color:var(--mu);line-height:1.4}
+.mo-card.wide{grid-column:1/-1}
+.c1::after{background:linear-gradient(90deg,var(--cy),transparent)} .c1:hover{border-color:rgba(0,240,255,.3)}
+.c2::after{background:linear-gradient(90deg,#ffd700,transparent)} .c2:hover{border-color:rgba(255,215,0,.3)}
+.c3::after{background:linear-gradient(90deg,var(--gr),transparent)} .c3:hover{border-color:rgba(0,255,136,.3)}
+.c4::after{background:linear-gradient(90deg,var(--ye),transparent)} .c4:hover{border-color:rgba(255,204,0,.3)}
+.c5::after{background:linear-gradient(90deg,var(--pu),transparent)} .c5:hover{border-color:rgba(189,0,255,.3)}
+.c6::after{background:linear-gradient(90deg,#4fc3f7,transparent)} .c6:hover{border-color:rgba(79,195,247,.3)}
+.c7::after{background:linear-gradient(90deg,var(--or),transparent)} .c7:hover{border-color:rgba(255,107,0,.3)}
+.c8::after{background:linear-gradient(90deg,var(--re),transparent)} .c8:hover{border-color:rgba(255,51,102,.3)}
+.mo-ext{background:rgba(189,0,255,.06);border-color:rgba(189,0,255,.2)}
+.mo-ext:hover{border-color:rgba(189,0,255,.4)}
+
 /* ══════════════════════════════════
    RESPONSIVE MÓVIL
 ══════════════════════════════════ */
@@ -273,7 +317,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="ph">
         <div><div class="pt">Dashboard <span>Central</span></div><div class="ps" id="dDate"></div></div>
         <div class="ha">
-          <a class="link-pub" href="menu.html" style="background:rgba(0,240,255,.1);border-color:rgba(0,240,255,.3);color:var(--cy)">☰ Menú</a>
+          <button class="link-pub" onclick="abrirMenu()" style="background:rgba(0,240,255,.1);border-color:rgba(0,240,255,.3);color:var(--cy);border:1px solid rgba(0,240,255,.3);cursor:pointer;font-family:inherit">☰ Menú</button>
           <a class="link-pub" id="linkPub" href="https://synapse-cheats.github.io/AI-SYNAPSE/" target="_blank">🤖 Editor IA ↗</a>
         </div>
       </div>
@@ -596,28 +640,32 @@ function doLogin() {
   const p = document.getElementById('lP').value;
   const saved = getSavedCreds();
   if (u===saved.user && p===saved.pass) {
-    document.getElementById('LS').style.display = 'none';
-    document.getElementById('MP').style.display = 'block';
-    document.getElementById('sbUser').textContent  = u.toUpperCase();
-    document.getElementById('sbInit').textContent  = u[0].toUpperCase();
-    document.getElementById('dDate').textContent   =
-      'Hoy, '+new Date().toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-    const cfg = getSavedFBCfg();
-    if (cfg && cfg.apiKey && !cfg.apiKey.startsWith('TU_')) initFB(cfg);
-    else if (!DEF_CFG.apiKey.startsWith('TU_')) initFB(DEF_CFG);
-    const pubUrl = localStorage.getItem('nx_pubUrl') || 'https://synapse-cheats.github.io/AI-SYNAPSE/';
-    document.getElementById('linkPub').href = pubUrl;
-
-    // Ir a sección si viene del menu.html
-    const goSec = sessionStorage.getItem('goSec');
-    if (goSec) { sessionStorage.removeItem('goSec'); setTimeout(()=>goSec(goSec), 400); }
+    // Guardar sesión activa
+    localStorage.setItem('nx_logged', JSON.stringify({user:u, ts:Date.now()}));
+    mostrarPanel(u);
   } else {
     document.getElementById('lE').style.display = 'block';
     setTimeout(()=>document.getElementById('lE').style.display='none', 3000);
   }
 }
 
+function mostrarPanel(u) {
+  document.getElementById('LS').style.display = 'none';
+  document.getElementById('MP').style.display = 'block';
+  document.getElementById('sbUser').textContent  = u.toUpperCase();
+  document.getElementById('sbInit').textContent  = u[0].toUpperCase();
+  document.getElementById('dDate').textContent   =
+    'Hoy, '+new Date().toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const cfg = getSavedFBCfg();
+  if (cfg && cfg.apiKey && !cfg.apiKey.startsWith('TU_')) initFB(cfg);
+  else if (!DEF_CFG.apiKey.startsWith('TU_')) initFB(DEF_CFG);
+  const pubUrl = localStorage.getItem('nx_pubUrl') || 'https://synapse-cheats.github.io/AI-SYNAPSE/';
+  document.getElementById('linkPub').href = pubUrl;
+
+}
+
 function doLogout() {
+  localStorage.removeItem('nx_logged');
   document.getElementById('LS').style.display='flex';
   document.getElementById('MP').style.display='none';
   document.getElementById('lU').value='';
@@ -1030,13 +1078,115 @@ document.querySelectorAll('.ni').forEach(el=>{
 });
 document.getElementById('lP').addEventListener('keydown',ev=>{ if(ev.key==='Enter') doLogin(); });
 
+// ── Auto-login si sesión activa (viene del menu.html) ──
+(function checkSession() {
+  try {
+    const s = localStorage.getItem('nx_logged');
+    if (!s) return;
+    const obj = JSON.parse(s);
+    // Sesión válida por 8 horas
+    if ((Date.now() - obj.ts) < 8 * 60 * 60 * 1000) {
+      mostrarPanel(obj.user);
+    } else {
+      sessionStorage.removeItem('nx_logged');
+    }
+  } catch(e) {}
+})();
+
 // Exponer al scope global
+// ── MENÚ OVERLAY ─────────────────────────────────
+function abrirMenu() {
+  document.getElementById('menuOverlay').classList.add('open');
+}
+function cerrarMenu() {
+  document.getElementById('menuOverlay').classList.remove('open');
+}
+function irA(sec) {
+  cerrarMenu();
+  setTimeout(() => goSec(sec), 120);
+}
+
 const fns={ doLogin, doLogout, goSec, openMP, saveP, delP, tog, openMC, saveC, delC,
   openMT, addD, addDC, saveFB, saveGH, saveCreds, saveBrand, savePubUrl,
   openMPw, genPw, savePw, removePw, openMo, closeMo,
   toggleSidebar, closeSidebar,
-  saveIAStatus, saveIAMensaje, loadIACfg };
+  saveIAStatus, saveIAMensaje, loadIACfg,
+  abrirMenu, cerrarMenu, irA };
 Object.assign(window, fns);
 </script>
+
+<!-- ═══════ MENÚ OVERLAY ═══════ -->
+<div id="menuOverlay">
+  <div class="mo-hd">
+    <span class="mo-brand">SYNAPSE</span>
+    <button class="mo-close" onclick="cerrarMenu()">✕ Cerrar</button>
+  </div>
+  <div class="mo-wrap">
+    <div class="mo-title">Menú <span>Principal</span></div>
+    <div class="mo-sub">Selecciona una sección</div>
+
+    <div class="mo-sec">📌 Principal</div>
+    <div class="mo-grid">
+      <div class="mo-card c1" onclick="irA('dashboard')">
+        <div class="ic">📊</div>
+        <div class="nm">Dashboard</div>
+        <div class="ds">Resumen general</div>
+      </div>
+      <div class="mo-card c6" onclick="irA('estadisticas')">
+        <div class="ic">📈</div>
+        <div class="nm">Estadísticas</div>
+        <div class="ds">Métricas de proyectos</div>
+      </div>
+    </div>
+
+    <div class="mo-sec">🗂️ Gestión</div>
+    <div class="mo-grid">
+      <div class="mo-card c2" onclick="irA('proyectos')">
+        <div class="ic">🗂️</div>
+        <div class="nm">Proyectos</div>
+        <div class="ds">Administra proyectos</div>
+      </div>
+      <div class="mo-card c3" onclick="irA('clientes')">
+        <div class="ic">👥</div>
+        <div class="nm">Clientes</div>
+        <div class="ds">Cartera de clientes</div>
+      </div>
+      <div class="mo-card c4" onclick="irA('pagos')">
+        <div class="ic">💳</div>
+        <div class="nm">Pagos</div>
+        <div class="ds">Licencias y pagos</div>
+      </div>
+      <div class="mo-card c5" onclick="irA('accesos')">
+        <div class="ic">🔐</div>
+        <div class="nm">Accesos</div>
+        <div class="ds">Contraseñas clientes</div>
+      </div>
+    </div>
+
+    <div class="mo-sec">🤖 Control IA</div>
+    <div class="mo-grid">
+      <div class="mo-card c7 wide" onclick="irA('ia')">
+        <div class="ic">🤖</div>
+        <div class="nm">Control del Editor IA</div>
+        <div class="ds">Activa, desactiva o pon en mantenimiento el editor IA de tus clientes</div>
+      </div>
+    </div>
+
+    <div class="mo-sec">⚙️ Sistema</div>
+    <div class="mo-grid">
+      <div class="mo-card c8" onclick="irA('config')">
+        <div class="ic">⚙️</div>
+        <div class="nm">Configuración</div>
+        <div class="ds">Firebase y GitHub</div>
+      </div>
+      <div class="mo-card mo-ext" onclick="window.open('https://synapse-cheats.github.io/AI-SYNAPSE/','_blank')">
+        <div class="ic">✨</div>
+        <div class="nm">Editor IA Público</div>
+        <div class="ds">Ver como cliente ↗</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
