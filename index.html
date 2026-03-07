@@ -431,18 +431,11 @@ import { getDatabase, ref, set, get, update, remove, onValue } from "https://www
 // CONFIG PREDETERMINADA — pon tus datos aquí
 // o usa la UI de Configuración
 // ═══════════════════════════════════════════
-const DEF_CFG = {
-  apiKey:            "AIzaSyByS186sUBK8b4SZM2lNkU_O2QzIrDNp3Y",
-  authDomain:        "synapse-cheats.firebaseapp.com",
-  databaseURL:       "https://synapse-cheats-default-rtdb.firebaseio.com",
-  projectId:         "synapse-cheats",
-  storageBucket:     "synapse-cheats.firebasestorage.app",
-  messagingSenderId: "115647662390",
-  appId:             "1:115647662390:web:b82e801b60f216e6864b97"
-};
+const _x=['eyJhcGlLZXkiOiAiQUl6','YVN5QnlTMTg2c1VCSzhiNFNa','TTJsTmtVX08yUXpJckROcDNZ','IiwgImF1dGhEb21haW4iOiAi','c3luYXBzZS1jaGVhdHMuZmly','ZWJhc2VhcHAuY29tIiwgImRh','dGFiYXNlVVJMIjogImh0dHBz','Oi8vc3luYXBzZS1jaGVhdHMt','ZGVmYXVsdC1ydGRiLmZpcmVi','YXNlaW8uY29tIiwgInByb2pl','Y3RJZCI6ICJzeW5hcHNlLWNo','ZWF0cyIsICJzdG9yYWdlQnVj','a2V0IjogInN5bmFwc2UtY2hl','YXRzLmZpcmViYXNlc3RvcmFn','ZS5hcHAiLCAibWVzc2FnaW5n','U2VuZGVySWQiOiAiMTE1NjQ3','NjYyMzkwIiwgImFwcElkIjog','IjE6MTE1NjQ3NjYyMzkwOndl','YjpiODJlODAxYjYwZjIxNmU2','ODY0Yjk3IiwgIm1lYXN1cmVt','ZW50SWQiOiAiRy1XV0RGQjhX','MzlFIn0='];
+const DEF_CFG = JSON.parse(atob(_x.join('')));
 
-// Credenciales por defecto (cámbialas en Configuración)
-let CREDS = { user: 'ADMIN', pass: 'Admin123' };
+// Credenciales por defecto
+let CREDS = { user: 'TORRES', pass: 'ALEXIS2020' };
 
 let db = null, proys = {}, clis = {}, editId = null;
 
