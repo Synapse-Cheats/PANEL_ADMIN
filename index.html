@@ -259,6 +259,8 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="ns">Herramientas</div>
       <div class="ni" onclick="goSec('accesos')"><span class="ic">🔐</span> Accesos Clientes</div>
       <div class="ni" onclick="goSec('estadisticas')"><span class="ic">📈</span> Estadísticas</div>
+      <div class="ns">Control IA</div>
+      <div class="ni" onclick="goSec('ia')"><span class="ic">🤖</span> Control IA</div>
       <div class="ns">Sistema</div>
       <div class="ni" onclick="goSec('config')"><span class="ic">⚙️</span> Configuración</div>
     </nav>
@@ -298,7 +300,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
         <div class="ha"><button class="btn bp" onclick="openMP()">+ Nuevo Proyecto</button></div>
       </div>
       <div class="card"><div class="tw"><table>
-        <thead><tr><th>Proyecto</th><th>Cliente</th><th>Activo</th><th>Pagado</th><th>Expira</th><th>Acciones</th></tr></thead>
+        <thead><tr><th>Proyecto</th><th>Cliente</th><th>Activo</th><th>Pagado</th><th>Mant.</th><th>Expira</th><th>Acciones</th></tr></thead>
         <tbody id="tProy"><tr><td colspan="6"><div class="es"><div class="ei">🗂️</div><b>Sin proyectos</b></div></td></tr></tbody>
       </table></div></div>
     </div>
@@ -347,6 +349,65 @@ input:checked+.sl2::before{transform:translateX(20px)}
         <div class="card"><div class="ct"><span class="dot"></span>Estado de Proyectos</div><div id="chE"></div></div>
         <div class="card"><div class="ct"><span class="dot" style="background:var(--ye)"></span>Estado de Pagos</div><div id="chP"></div></div>
         <div class="card" style="grid-column:1/-1"><div class="ct"><span class="dot" style="background:var(--pu)"></span>Vencimientos próximos 30 días</div><div id="chV"></div></div>
+      </div>
+    </div>
+
+
+    <!-- CONTROL IA -->
+    <div class="sec" id="sec-ia">
+      <div class="ph">
+        <div><div class="pt">Control <span>IA</span></div><div class="ps">Gestiona el editor IA que usan tus clientes</div></div>
+      </div>
+
+      <!-- Estado global IA -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="ct"><span class="dot" style="background:var(--pu)"></span>Estado Global del Editor IA</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+
+          <div style="background:rgba(0,0,0,.3);border:1px solid var(--bd);border-radius:14px;padding:20px">
+            <div style="font-size:1.4rem;margin-bottom:8px">🤖</div>
+            <div style="font-weight:700;margin-bottom:4px">Editor IA</div>
+            <div style="font-size:.8rem;color:var(--mu);margin-bottom:14px">Activa o desactiva el editor para todos los clientes</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <label class="sw"><input type="checkbox" id="iaActiva" onchange="saveIAStatus('activa',this.checked)"><span class="sl2"></span></label>
+              <span id="iaActivaLbl" style="font-size:.85rem;color:var(--mu)">Cargando...</span>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,0,0,.3);border:1px solid var(--bd);border-radius:14px;padding:20px">
+            <div style="font-size:1.4rem;margin-bottom:8px">🔧</div>
+            <div style="font-weight:700;margin-bottom:4px">Modo Mantenimiento IA</div>
+            <div style="font-size:.8rem;color:var(--mu);margin-bottom:14px">Muestra pantalla de mantenimiento a los clientes</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <label class="sw"><input type="checkbox" id="iaMant" onchange="saveIAStatus('mantenimiento',this.checked)"><span class="sl2"></span></label>
+              <span id="iaMantLbl" style="font-size:.85rem;color:var(--mu)">Cargando...</span>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,0,0,.3);border:1px solid var(--bd);border-radius:14px;padding:20px">
+            <div style="font-size:1.4rem;margin-bottom:8px">📢</div>
+            <div style="font-weight:700;margin-bottom:4px">Mensaje Global</div>
+            <div style="font-size:.8rem;color:var(--mu);margin-bottom:10px">Mensaje que verán los clientes al entrar</div>
+            <textarea id="iaMensaje" rows="2" style="width:100%;background:rgba(0,0,0,.4);border:1px solid var(--bd);border-radius:8px;color:var(--tx);font-family:var(--fu);font-size:.82rem;padding:8px;resize:none" placeholder="Ej: Sistema en mantenimiento, volvemos pronto..."></textarea>
+            <button class="btn bp bsm" style="margin-top:8px" onclick="saveIAMensaje()">💾 Guardar mensaje</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Usuarios clientes IA -->
+      <div class="card">
+        <div class="ct" style="justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:10px"><span class="dot" style="background:var(--cy)"></span>Usuarios Clientes del Editor IA</div>
+          <button class="btn bp bsm" onclick="openMPw('')">+ Asignar contraseña</button>
+        </div>
+        <div style="font-size:.82rem;color:var(--mu);margin-bottom:16px;background:rgba(0,240,255,.04);border:1px solid rgba(0,240,255,.1);border-radius:10px;padding:12px">
+          💡 Cada proyecto tiene su propia contraseña de acceso. El cliente entra al editor IA con su contraseña y solo ve <b style="color:var(--tx)">su propio sitio</b>.
+        </div>
+        <div class="tw"><table>
+          <thead><tr><th>Proyecto</th><th>Cliente</th><th>Contraseña</th><th>Estado</th><th>Pago</th><th>Mant.</th><th>Acciones</th></tr></thead>
+          <tbody id="tIA"><tr><td colspan="7"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr></tbody>
+        </table></div>
       </div>
     </div>
 
@@ -422,6 +483,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
     <div style="display:flex;gap:24px;margin:8px 0">
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer"><label class="sw"><input type="checkbox" id="mpA" checked><span class="sl2"></span></label><span style="font-size:.85rem">Activo</span></label>
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer"><label class="sw"><input type="checkbox" id="mpPg"><span class="sl2"></span></label><span style="font-size:.85rem">Pagado</span></label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer"><label class="sw"><input type="checkbox" id="mpMant"><span class="sl2"></span></label><span style="font-size:.85rem">🔧 Mantenimiento</span></label>
     </div>
     <div class="fm2"><label>Notas</label><textarea id="mpNo" rows="2" placeholder="Notas opcionales..."></textarea></div>
     <div class="ma"><button class="btn bh" onclick="closeMo('moP')">Cancelar</button><button class="btn bp" onclick="saveP()">💾 Guardar</button></div>
@@ -522,6 +584,16 @@ function subscribe() {
   if (!db) return;
   onValue(ref(db,'proyectos'), s => { proys = s.val()||{}; renderAll(); });
   onValue(ref(db,'clientes'),  s => { clis  = s.val()||{}; renderCli(); });
+  onValue(ref(db,'config/ia'), s => { iaCfg = s.val()||{}; syncIAui(); });
+}
+
+function syncIAui(){
+  const actEl=document.getElementById('iaActiva');
+  const mantEl=document.getElementById('iaMant');
+  const msgEl=document.getElementById('iaMensaje');
+  if(actEl){actEl.checked=iaCfg.activa!==false;document.getElementById('iaActivaLbl').textContent=actEl.checked?'✅ Activo':'🔴 Inactivo';}
+  if(mantEl){mantEl.checked=!!iaCfg.mantenimiento;document.getElementById('iaMantLbl').textContent=mantEl.checked?'🔧 En mantenimiento':'✅ Operando normal';}
+  if(msgEl&&iaCfg.mensaje)msgEl.value=iaCfg.mensaje;
 }
 
 // ── AUTH ──────────────────────────────────
@@ -570,7 +642,7 @@ function goSec(n) {
 }
 
 // ── RENDER ────────────────────────────────
-function renderAll() { renderStats(); renderTablaProy(); renderTablaPag(); renderDash(); renderTablaAcc(); }
+function renderAll() { renderStats(); renderTablaProy(); renderTablaPag(); renderDash(); renderTablaAcc(); renderTablaIA(); }
 
 function renderStats() {
   const L = Object.values(proys);
@@ -599,6 +671,7 @@ function renderTablaProy() {
       <td>${e(p.cliente||'—')}</td>
       <td><label class="sw"><input type="checkbox" ${p.activo?'checked':''} onchange="tog('${id}','activo',this.checked)"><span class="sl2"></span></label></td>
       <td><label class="sw"><input type="checkbox" ${p.pagado?'checked':''} onchange="tog('${id}','pagado',this.checked)"><span class="sl2"></span></label></td>
+      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="tog('${id}','mantenimiento',this.checked)" style="--gr:#ff6b00"><span class="sl2"></span></label></td>
       <td>${eb}</td>
       <td><div style="display:flex;gap:6px;flex-wrap:wrap">
         <button class="btn bh bsm" onclick="openMP('${id}')">✏️</button>
@@ -667,6 +740,7 @@ function openMP(id) {
   set_('mpPr',p.precio||''); set_('mpNo',p.notas||''); set_('mpPw',p.password||'');
   document.getElementById('mpA').checked=p.activo!==false;
   document.getElementById('mpPg').checked=!!p.pagado;
+  document.getElementById('mpMant').checked=!!p.mantenimiento;
   openMo('moP');
 }
 
@@ -675,7 +749,7 @@ async function saveP() {
   const id=editId||(proys[editId]?editId:'p_'+Date.now());
   const d={ nombre:get_('mpN').trim(), cliente:get_('mpC').trim(), url:get_('mpU').trim(),
     repo:get_('mpR').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
-    activo:document.getElementById('mpA').checked, pagado:document.getElementById('mpPg').checked,
+    activo:document.getElementById('mpA').checked, pagado:document.getElementById('mpPg').checked, mantenimiento:document.getElementById('mpMant').checked,
     notas:get_('mpNo').trim(), password:get_('mpPw').trim()||null, updated:new Date().toISOString() };
   if (!d.nombre) { toast('El nombre es obligatorio','error'); return; }
   if (d.password===null) delete d.password;
@@ -694,7 +768,7 @@ async function tog(id, field, val) {
   if (!db) return;
   const upd={}; upd[field]=val;
   await update(ref(db,'proyectos/'+id),upd);
-  const msgs={activo:{true:'✅ Activado',false:'🔴 Desactivado'},pagado:{true:'💳 Marcado pagado',false:'⚠ Sin pagar'}};
+  const msgs={activo:{true:'✅ Activado',false:'🔴 Desactivado'},pagado:{true:'💳 Marcado pagado',false:'⚠ Sin pagar'},mantenimiento:{true:'🔧 Mantenimiento activado',false:'✅ Mantenimiento desactivado'}};
   toast(msgs[field][val]||'Actualizado', val?'success':'info');
 }
 
@@ -862,6 +936,69 @@ function renderCharts() {
 function bar(lbl,val,tot,col){ const p=Math.round((val/tot)*100);
   return `<div class="cb"><div class="cl2">${lbl}</div><div class="ct2"><div class="cf" style="width:${p}%;background:${col}"></div></div><div class="cv" style="color:${col}">${val}</div></div>`; }
 
+
+// ── CONTROL IA ────────────────────────────
+let iaCfg = {};
+
+function renderTablaIA() {
+  const tb = document.getElementById('tIA');
+  if (!tb) return;
+  const L = Object.entries(proys);
+  if (!L.length) { tb.innerHTML='<tr><td colspan="7"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr>'; return; }
+  tb.innerHTML = L.map(([id,p]) => {
+    const hasPw = !!p.password;
+    const pwTxt = hasPw
+      ? `<span style="font-family:var(--fm);font-size:.82rem;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:6px">${e(p.password)}</span>`
+      : '<span style="color:var(--re);font-size:.78rem">⚠ Sin contraseña</span>';
+    return `<tr>
+      <td><b>${e(p.nombre)}</b></td>
+      <td>${e(p.cliente||'—')}</td>
+      <td>${pwTxt}</td>
+      <td><span class="badge ${p.activo?'bg':'br'}">${p.activo?'✅':'🔴'}</span></td>
+      <td><span class="badge ${p.pagado?'bb':'by'}">${p.pagado?'💳':'⚠'}</span></td>
+      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="tog('${id}','mantenimiento',this.checked)"><span class="sl2"></span></label></td>
+      <td><div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn bh bsm" style="border-color:rgba(189,0,255,.3);color:var(--pu)" onclick="openMPw('${id}')">🔑 ${hasPw?'Cambiar':'Asignar'}</button>
+        ${hasPw?`<button class="btn bd2 bsm" onclick="removePw('${id}')">🗑️</button>`:''}
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+async function loadIACfg() {
+  if (!db) return;
+  const snap = await get(ref(db,'config/ia'));
+  iaCfg = snap.val()||{};
+  const actEl = document.getElementById('iaActiva');
+  const mantEl = document.getElementById('iaMant');
+  const msgEl = document.getElementById('iaMensaje');
+  if (actEl) {
+    actEl.checked = iaCfg.activa !== false;
+    document.getElementById('iaActivaLbl').textContent = actEl.checked ? '✅ Activo' : '🔴 Inactivo';
+  }
+  if (mantEl) {
+    mantEl.checked = !!iaCfg.mantenimiento;
+    document.getElementById('iaMantLbl').textContent = mantEl.checked ? '🔧 En mantenimiento' : '✅ Operando normal';
+  }
+  if (msgEl && iaCfg.mensaje) msgEl.value = iaCfg.mensaje;
+}
+
+async function saveIAStatus(field, val) {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  const upd = {}; upd[field] = val;
+  await update(ref(db,'config/ia'), upd);
+  if (field==='activa') document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
+  if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent = val ? '🔧 En mantenimiento' : '✅ Operando normal';
+  toast(val ? '✅ Activado' : '🔴 Desactivado', val ? 'success' : 'info');
+}
+
+async function saveIAMensaje() {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  const msg = document.getElementById('iaMensaje').value.trim();
+  await update(ref(db,'config/ia'), {mensaje: msg||null});
+  toast('💾 Mensaje guardado','success');
+}
+
 // ── UTILIDADES ────────────────────────────
 function getSavedFBCfg(){ const s=sessionStorage.getItem('nx_fb'); if(s) try{return JSON.parse(s)}catch(e){} return null; }
 function openMo(id){ document.getElementById(id).classList.add('op'); }
@@ -898,7 +1035,9 @@ document.getElementById('lP').addEventListener('keydown',ev=>{ if(ev.key==='Ente
 // Exponer al scope global
 const fns={ doLogin, doLogout, goSec, openMP, saveP, delP, tog, openMC, saveC, delC,
   openMT, addD, addDC, saveFB, saveGH, saveCreds, saveBrand, savePubUrl,
-  openMPw, genPw, savePw, removePw, openMo, closeMo };
+  openMPw, genPw, savePw, removePw, openMo, closeMo,
+  toggleSidebar, closeSidebar,
+  saveIAStatus, saveIAMensaje, loadIACfg };
 Object.assign(window, fns);
 </script>
 </body>
