@@ -93,7 +93,7 @@ body{font-family:var(--fu);background:var(--bg);color:var(--tx);min-height:100vh
 
 <div class="hd">
   <span class="hd-brand">SYNAPSE</span>
-  <a class="hd-back" href="index.html">← Dashboard</a>
+  <a class="hd-back" href="index.html?sec=dashboard">← Dashboard</a>
 </div>
 
 <div class="wrap">
@@ -169,13 +169,10 @@ body{font-family:var(--fu);background:var(--bg);color:var(--tx);min-height:100vh
 </div>
 
 <script>
-// Guardar sección destino en sessionStorage para que index.html la abra
 function goTo(sec) {
-  sessionStorage.setItem('goSec', sec);
+  // Navegar con parámetro URL — index.html lo leerá y saltará a la sección
+  window.location.href = 'index.html?sec=' + sec;
 }
-
-// Al cargar index.html, leer la sección y navegar a ella
-// (esto se maneja en index.html al iniciar)
 </script>
 </body>
 </html>

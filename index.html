@@ -11,7 +11,6 @@
 body{font-family:var(--fu);background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,240,255,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 90%,rgba(0,255,136,.05) 0%,transparent 60%);pointer-events:none}
 
-/* LOGIN */
 #LS{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg)}
 .lb{background:var(--sf);border:1px solid rgba(0,240,255,.25);border-radius:20px;padding:50px 44px;width:100%;max-width:420px;box-shadow:0 0 80px rgba(0,240,255,.08),0 40px 80px rgba(0,0,0,.6);position:relative;overflow:hidden}
 .lb::before{content:'';position:absolute;top:-2px;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--cy),transparent)}
@@ -25,7 +24,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .btn-lg:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,240,255,.3)}
 .lerr{background:rgba(255,51,102,.15);border:1px solid rgba(255,51,102,.4);border-radius:8px;padding:12px;text-align:center;color:var(--re);font-size:.85rem;margin-top:14px;display:none}
 
-/* LAYOUT */
 #MP{display:none;position:relative;z-index:1}
 .sb{position:fixed;left:0;top:0;bottom:0;width:240px;background:var(--sf);border-right:1px solid var(--bd);display:flex;flex-direction:column;z-index:160}
 .sb-logo{padding:28px 24px 20px;border-bottom:1px solid var(--bd)}
@@ -52,7 +50,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .ha{display:flex;gap:10px}
 .sec{display:none}.sec.act{display:block}
 
-/* STATS */
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:28px}
 .sc{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:22px;position:relative;overflow:hidden;transition:.2s}
 .sc:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
@@ -65,7 +62,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradi
 .sv{font-size:2.4rem;font-weight:800;font-family:var(--fm)}
 .sl{color:var(--mu);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-top:6px}
 
-/* CARD */
 .card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:24px;margin-bottom:20px}
 .ct{font-size:1rem;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--cy);box-shadow:0 0 8px var(--cy)}
@@ -76,14 +72,12 @@ tbody td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.04);vertica
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 
-/* BADGES */
 .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:700;font-family:var(--fm);letter-spacing:.5px}
 .bg{background:rgba(0,255,136,.12);color:var(--gr);border:1px solid rgba(0,255,136,.25)}
 .br{background:rgba(255,51,102,.12);color:var(--re);border:1px solid rgba(255,51,102,.25)}
 .by{background:rgba(255,204,0,.12);color:var(--ye);border:1px solid rgba(255,204,0,.25)}
 .bb{background:rgba(0,240,255,.12);color:var(--cy);border:1px solid rgba(0,240,255,.25)}
 
-/* BOTONES */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:9px;border:none;font-family:var(--fu);font-size:.82rem;font-weight:700;cursor:pointer;transition:.15s;letter-spacing:.5px}
 .bp{background:linear-gradient(135deg,var(--cy),var(--gr));color:#000}
 .bp:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,240,255,.25)}
@@ -95,7 +89,6 @@ tbody tr:hover td{background:rgba(255,255,255,.02)}
 .bw{background:rgba(255,204,0,.15);border:1px solid rgba(255,204,0,.3);color:var(--ye)}
 .bsm{padding:6px 12px;font-size:.75rem;border-radius:7px}
 
-/* FORMS */
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fm2{margin-bottom:16px}
 .fm2 label{display:block;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
@@ -104,7 +97,6 @@ tbody tr:hover td{background:rgba(255,255,255,.02)}
 .fm2 select option{background:var(--sf)}
 .fm2 textarea{resize:vertical;min-height:80px}
 
-/* MODAL */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)}
 .mo.op{display:flex}
 .mod{background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:32px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 40px 80px rgba(0,0,0,.5);animation:mi .2s ease}
@@ -112,7 +104,7 @@ tbody tr:hover td{background:rgba(255,255,255,.02)}
 .mt{font-size:1.3rem;font-weight:800;margin-bottom:24px}
 .ma{display:flex;gap:10px;justify-content:flex-end;margin-top:24px}
 
-/* SWITCH */
+/* SWITCH — corregido para no rebotar */
 .sw{position:relative;display:inline-block;width:44px;height:24px}
 .sw input{opacity:0;width:0;height:0}
 .sl2{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.1);border-radius:24px;transition:.3s}
@@ -120,22 +112,18 @@ tbody tr:hover td{background:rgba(255,255,255,.02)}
 input:checked+.sl2{background:var(--gr);box-shadow:0 0 10px rgba(0,255,136,.4)}
 input:checked+.sl2::before{transform:translateX(20px)}
 
-/* PROGRESS */
 .pb{height:4px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;margin-top:8px}
 .pf{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--cy),var(--gr));transition:width .5s}
 
-/* CONFIG */
 .cfg-s{background:rgba(0,240,255,.03);border:1px dashed rgba(0,240,255,.2);border-radius:14px;padding:20px;margin-bottom:16px}
 .cfg-s h4{font-size:.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--cy);margin-bottom:16px}
 
-/* CHART BARS */
 .cb{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .cl2{font-size:.78rem;color:var(--mu);width:90px;text-align:right;font-family:var(--fm)}
 .ct2{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
 .cf{height:100%;border-radius:4px;transition:width 1s ease}
 .cv{font-size:.78rem;font-family:var(--fm);font-weight:700;width:36px}
 
-/* CLIENTE ROW */
 .cr{display:flex;align-items:center;justify-content:space-between;padding:14px;background:rgba(0,0,0,.2);border-radius:12px;border:1px solid var(--bd);margin-bottom:10px;transition:.15s}
 .cr:hover{border-color:rgba(0,240,255,.2)}
 .ci{display:flex;align-items:center;gap:14px}
@@ -143,11 +131,9 @@ input:checked+.sl2::before{transform:translateX(20px)}
 .cn{font-weight:700;font-size:.95rem}
 .cm{font-size:.75rem;color:var(--mu);margin-top:2px;font-family:var(--fm)}
 
-/* EXPIRY */
 .eb{height:5px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;margin-top:6px}
 .ef{height:100%;border-radius:4px}
 
-/* TOAST */
 #toast{position:fixed;bottom:24px;right:24px;z-index:9999;padding:14px 20px;border-radius:12px;font-size:.875rem;font-weight:600;display:none;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,.4);animation:ti .3s ease;max-width:360px}
 #toast.show{display:flex}
 #toast.success{background:#0d2a1a;border:1px solid rgba(0,255,136,.4);color:var(--gr)}
@@ -155,7 +141,6 @@ input:checked+.sl2::before{transform:translateX(20px)}
 #toast.info{background:#0d1a2a;border:1px solid rgba(0,240,255,.4);color:var(--cy)}
 @keyframes ti{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* MISC */
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,240,255,.2);border-top-color:var(--cy);border-radius:50%;animation:sp .7s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 .es{text-align:center;padding:50px 20px;color:var(--mu)}
@@ -163,105 +148,38 @@ input:checked+.sl2::before{transform:translateX(20px)}
 .link-pub{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(189,0,255,.1);border:1px solid rgba(189,0,255,.3);border-radius:10px;color:var(--pu);font-size:.85rem;font-weight:700;text-decoration:none;transition:.15s}
 .link-pub:hover{background:rgba(189,0,255,.2)}
 
-/* ── MENÚ OVERLAY ── */
-#menuOverlay{display:none;position:fixed;inset:0;z-index:9999;
-  background:var(--bg);overflow-y:auto;
-  background-image:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,240,255,.07) 0%,transparent 60%),
-  radial-gradient(ellipse 60% 40% at 80% 90%,rgba(0,255,136,.05) 0%,transparent 60%)}
-#menuOverlay.open{display:block}
-.mo-hd{position:sticky;top:0;z-index:10;background:rgba(6,8,16,.95);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);
-  padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.mo-brand{font-size:1.1rem;font-weight:800;letter-spacing:3px;
-  background:linear-gradient(135deg,var(--cy),var(--gr));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.mo-close{background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.25);
-  border-radius:8px;color:var(--cy);font-size:.82rem;font-weight:700;
-  padding:8px 14px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:.15s}
-.mo-close:hover{background:rgba(0,240,255,.2)}
-.mo-wrap{padding:24px 16px 40px;max-width:600px;margin:0 auto}
-.mo-title{font-size:1.4rem;font-weight:800;margin-bottom:4px}
-.mo-title span{color:var(--cy)}
-.mo-sub{font-size:.82rem;color:var(--mu);margin-bottom:28px}
-.mo-sec{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--mu);margin-bottom:10px;padding-left:4px}
-.mo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
-.mo-card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;
-  padding:20px 16px;cursor:pointer;color:var(--tx);
-  display:flex;flex-direction:column;align-items:flex-start;gap:8px;
-  transition:.18s;position:relative;overflow:hidden;user-select:none}
-.mo-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
-.mo-card:hover,.mo-card:active{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
-.mo-card .ic{font-size:2rem;line-height:1}
-.mo-card .nm{font-size:.95rem;font-weight:700}
-.mo-card .ds{font-size:.72rem;color:var(--mu);line-height:1.4}
-.mo-card.wide{grid-column:1/-1}
-.c1::after{background:linear-gradient(90deg,var(--cy),transparent)} .c1:hover{border-color:rgba(0,240,255,.3)}
-.c2::after{background:linear-gradient(90deg,#ffd700,transparent)} .c2:hover{border-color:rgba(255,215,0,.3)}
-.c3::after{background:linear-gradient(90deg,var(--gr),transparent)} .c3:hover{border-color:rgba(0,255,136,.3)}
-.c4::after{background:linear-gradient(90deg,var(--ye),transparent)} .c4:hover{border-color:rgba(255,204,0,.3)}
-.c5::after{background:linear-gradient(90deg,var(--pu),transparent)} .c5:hover{border-color:rgba(189,0,255,.3)}
-.c6::after{background:linear-gradient(90deg,#4fc3f7,transparent)} .c6:hover{border-color:rgba(79,195,247,.3)}
-.c7::after{background:linear-gradient(90deg,var(--or),transparent)} .c7:hover{border-color:rgba(255,107,0,.3)}
-.c8::after{background:linear-gradient(90deg,var(--re),transparent)} .c8:hover{border-color:rgba(255,51,102,.3)}
-.mo-ext{background:rgba(189,0,255,.06);border-color:rgba(189,0,255,.2)}
-.mo-ext:hover{border-color:rgba(189,0,255,.4)}
+/* Estilos tabla de usuarios IA */
+.user-row{display:flex;align-items:center;justify-content:space-between;padding:16px;background:rgba(0,0,0,.25);border:1px solid var(--bd);border-radius:12px;margin-bottom:10px;transition:.15s}
+.user-row:hover{border-color:rgba(189,0,255,.3)}
+.user-info{display:flex;align-items:center;gap:14px}
+.user-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--pu),var(--cy));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#000}
+.user-name{font-weight:700;font-size:.95rem}
+.user-detail{font-size:.75rem;color:var(--mu);margin-top:2px;font-family:var(--fm)}
+.master-badge{background:linear-gradient(135deg,rgba(255,215,0,.2),rgba(255,165,0,.1));border:1px solid rgba(255,215,0,.4);color:#ffd700;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:1px}
 
-/* ══════════════════════════════════
-   RESPONSIVE MÓVIL
-══════════════════════════════════ */
-
-/* Botón hamburguesa */
+/* Sidebar móvil */
 .mob-top{display:none;position:fixed;top:0;left:0;right:0;height:56px;background:var(--sf);border-bottom:1px solid var(--bd);z-index:200;align-items:center;padding:0 16px;gap:12px}
 .mob-brand{font-size:1.1rem;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,var(--cy),var(--gr));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .mob-menu-btn{background:none;border:none;color:var(--tx);font-size:1.5rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:.15s;margin-left:auto}
 .mob-menu-btn:hover{background:rgba(255,255,255,.08)}
-
-/* Overlay */
 .sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:155;backdrop-filter:blur(2px)}
 .sb-overlay.op{display:block}
 
 @media(max-width:768px){
   .mob-top{display:flex}
-
-  /* Sidebar deslizable */
   .sb{transform:translateX(-100%);transition:transform .25s ease;z-index:160;top:0}
   .sb.open{transform:translateX(0)}
-
-  /* Contenido principal */
   .mc{margin-left:0;padding:72px 16px 24px}
-
-  /* Stats cards en 2 columnas */
   .sg{grid-template-columns:repeat(2,1fr);gap:12px}
-  .sc{padding:16px}
-  .sv{font-size:1.8rem}
-
-  /* Formularios en 1 columna */
+  .sc{padding:16px}.sv{font-size:1.8rem}
   .fg{grid-template-columns:1fr}
-
-  /* Tablas scrolleables */
   .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{min-width:520px}
-
-  /* Page header */
   .ph{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:20px}
   .ha{flex-wrap:wrap}
   .pt{font-size:1.4rem}
-
-  /* Modal */
   .mod{padding:24px 18px;margin:12px}
-
-  /* Link público */
-  .link-pub{font-size:.75rem;padding:8px 12px}
-
-  /* Estadísticas 1 col */
-  #sec-estadisticas > div{grid-template-columns:1fr !important}
-  #sec-estadisticas .card:last-child{grid-column:auto !important}
-
-  /* Config sections */
-  .cfg-s{padding:14px}
 }
-
 </style>
 </head>
 <body>
@@ -272,19 +190,26 @@ input:checked+.sl2::before{transform:translateX(20px)}
     <div class="ll">⚡</div>
     <div class="lbr" id="brandName">SYNAPSE</div>
     <div class="ls">Panel Administrador — Acceso Privado</div>
-    <div class="fi"><label>Usuario</label><input type="text" id="lU" placeholder="admin"></div>
-    <div class="fi"><label>Contraseña</label><input type="password" id="lP" placeholder="••••••••"></div>
+    <div class="fi"><label>Usuario</label><input type="text" id="lU" placeholder="admin" autocomplete="username"></div>
+    <div class="fi"><label>Contraseña</label><input type="password" id="lP" placeholder="••••••••" autocomplete="current-password"></div>
     <button class="btn-lg" onclick="doLogin()">⚡ ACCEDER</button>
     <div class="lerr" id="lE">❌ Credenciales incorrectas</div>
   </div>
 </div>
 
+<!-- MÓVIL TOP BAR -->
+<div class="mob-top" style="display:none" id="mobTop">
+  <span class="mob-brand" id="mobBrand">SYNAPSE</span>
+  <button class="mob-menu-btn" onclick="toggleSidebar()">☰</button>
+</div>
+<div class="sb-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
+
 <!-- PANEL -->
 <div id="MP">
-  <aside class="sb">
+  <aside class="sb" id="sidebar">
     <div class="sb-logo">
       <div class="brand" id="sbBrand">SYNAPSE</div>
-      <div class="ver">Synapse Studio v3.0</div>
+      <div class="ver">Synapse Studio v3.1</div>
     </div>
     <nav class="nav">
       <div class="ns">Principal</div>
@@ -295,6 +220,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="ni" onclick="goSec('pagos')"><span class="ic">💳</span> Pagos <span class="nb" id="nb" style="display:none">0</span></div>
       <div class="ns">Herramientas</div>
       <div class="ni" onclick="goSec('accesos')"><span class="ic">🔐</span> Accesos Clientes</div>
+      <div class="ni" onclick="goSec('usuarios')"><span class="ic">👤</span> Usuarios IA</div>
       <div class="ni" onclick="goSec('estadisticas')"><span class="ic">📈</span> Estadísticas</div>
       <div class="ns">Control IA</div>
       <div class="ni" onclick="goSec('ia')"><span class="ic">🤖</span> Control IA</div>
@@ -304,7 +230,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
     <div class="sb-ft">
       <div class="uc">
         <div class="ua" id="sbInit">A</div>
-        <div><div class="un" id="sbUser">Admin</div><div class="ur">Administrador</div></div>
+        <div><div class="un" id="sbUser">Admin</div><div class="ur" id="sbRole">Administrador</div></div>
       </div>
       <button class="btn-out" onclick="doLogout()">🚪 Cerrar Sesión</button>
     </div>
@@ -317,7 +243,6 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="ph">
         <div><div class="pt">Dashboard <span>Central</span></div><div class="ps" id="dDate"></div></div>
         <div class="ha">
-          <button class="link-pub" onclick="abrirMenu()" style="background:rgba(0,240,255,.1);border-color:rgba(0,240,255,.3);color:var(--cy);border:1px solid rgba(0,240,255,.3);cursor:pointer;font-family:inherit">☰ Menú</button>
           <a class="link-pub" id="linkPub" href="https://synapse-cheats.github.io/AI-SYNAPSE/" target="_blank">🤖 Editor IA ↗</a>
         </div>
       </div>
@@ -339,7 +264,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
       </div>
       <div class="card"><div class="tw"><table>
         <thead><tr><th>Proyecto</th><th>Cliente</th><th>Activo</th><th>Pagado</th><th>Mant.</th><th>Expira</th><th>Acciones</th></tr></thead>
-        <tbody id="tProy"><tr><td colspan="6"><div class="es"><div class="ei">🗂️</div><b>Sin proyectos</b></div></td></tr></tbody>
+        <tbody id="tProy"><tr><td colspan="7"><div class="es"><div class="ei">🗂️</div><b>Sin proyectos</b></div></td></tr></tbody>
       </table></div></div>
     </div>
 
@@ -364,13 +289,13 @@ input:checked+.sl2::before{transform:translateX(20px)}
     <!-- ACCESOS CLIENTES -->
     <div class="sec" id="sec-accesos">
       <div class="ph">
-        <div><div class="pt">Accesos <span>Clientes</span></div><div class="ps">Contraseñas para el editor IA público — cada cliente solo ve su propio sitio</div></div>
+        <div><div class="pt">Accesos <span>Clientes</span></div><div class="ps">Contraseñas para el editor IA — cada cliente solo ve su sitio</div></div>
       </div>
       <div class="card" style="background:rgba(189,0,255,.04);border-color:rgba(189,0,255,.2);margin-bottom:20px">
         <div style="display:flex;align-items:center;gap:14px">
           <div style="font-size:2rem">💡</div>
           <div style="font-size:.88rem;color:var(--mu);line-height:1.6">
-            Cada proyecto tiene su propia contraseña. El cliente entra a <strong style="color:var(--tx)">ai-editor.html</strong>, escribe su contraseña, y solo ve <strong style="color:var(--tx)">su sitio</strong>. No puede acceder ni modificar los proyectos de otros.
+            Cada proyecto tiene su propia contraseña. El cliente entra al editor IA, escribe su contraseña y solo ve <strong style="color:var(--tx)">su sitio</strong>. La clave maestra <strong style="color:var(--cy)">TORRES</strong> ve y puede editar <strong style="color:var(--tx)">todos</strong> los proyectos.
           </div>
         </div>
       </div>
@@ -378,6 +303,39 @@ input:checked+.sl2::before{transform:translateX(20px)}
         <thead><tr><th>Proyecto</th><th>Cliente</th><th>Contraseña de acceso</th><th>Estado</th><th>Acciones</th></tr></thead>
         <tbody id="tAcc"><tr><td colspan="5"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr></tbody>
       </table></div></div>
+    </div>
+
+    <!-- USUARIOS IA -->
+    <div class="sec" id="sec-usuarios">
+      <div class="ph">
+        <div><div class="pt">Usuarios del <span>Editor IA</span></div><div class="ps">Gestiona quién puede acceder al editor IA y a qué páginas</div></div>
+        <div class="ha"><button class="btn bp" onclick="openMU()">+ Nuevo Usuario</button></div>
+      </div>
+
+      <!-- Clave maestra -->
+      <div class="card" style="background:linear-gradient(135deg,rgba(255,215,0,.06),rgba(255,165,0,.04));border-color:rgba(255,215,0,.25);margin-bottom:20px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="font-size:2.5rem">👑</div>
+          <div>
+            <div style="font-size:1rem;font-weight:800;color:#ffd700;letter-spacing:2px;margin-bottom:4px">CLAVE MAESTRA — TORRES</div>
+            <div style="font-size:.85rem;color:var(--mu);line-height:1.6">Con esta clave accedes al editor IA y puedes ver y editar <strong style="color:var(--tx)">TODOS los proyectos</strong>. No aparece en Firebase, está codificada en el sistema.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de usuarios del sistema -->
+      <div class="card">
+        <div class="ct" style="justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:10px"><span class="dot" style="background:var(--pu)"></span>Usuarios con Acceso al Editor IA</div>
+          <button class="btn bp bsm" onclick="openMU()">+ Nuevo Usuario</button>
+        </div>
+        <div style="font-size:.82rem;color:var(--mu);margin-bottom:16px;background:rgba(0,240,255,.04);border:1px solid rgba(0,240,255,.1);border-radius:10px;padding:12px">
+          💡 Cada usuario puede acceder al editor IA con su contraseña y solo editar <b style="color:var(--tx)">su propio sitio</b>. La clave maestra <b style="color:#ffd700">TORRES</b> da acceso a todos.
+        </div>
+        <div id="listaUsuarios">
+          <div class="es"><div class="ei">👤</div><b>Sin usuarios adicionales</b><p>Los proyectos con contraseña ya son usuarios</p></div>
+        </div>
+      </div>
     </div>
 
     <!-- ESTADÍSTICAS -->
@@ -390,14 +348,19 @@ input:checked+.sl2::before{transform:translateX(20px)}
       </div>
     </div>
 
-
     <!-- CONTROL IA -->
     <div class="sec" id="sec-ia">
       <div class="ph">
         <div><div class="pt">Control <span>IA</span></div><div class="ps">Gestiona el editor IA que usan tus clientes</div></div>
       </div>
 
-      <!-- Estado global IA -->
+      <div class="card" style="margin-bottom:20px;background:rgba(255,204,0,.04);border-color:rgba(255,204,0,.2)">
+        <div style="font-size:.85rem;color:var(--ye);display:flex;gap:10px;align-items:center">
+          <span style="font-size:1.2rem">⚡</span>
+          <span>Los cambios se guardan en <strong>Firebase</strong> instantáneamente. Los clientes verán el cambio al recargar el editor IA.</span>
+        </div>
+      </div>
+
       <div class="card" style="margin-bottom:20px">
         <div class="ct"><span class="dot" style="background:var(--pu)"></span>Estado Global del Editor IA</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
@@ -433,17 +396,14 @@ input:checked+.sl2::before{transform:translateX(20px)}
         </div>
       </div>
 
-      <!-- Usuarios clientes IA -->
+      <!-- Usuarios clientes IA con switches por proyecto -->
       <div class="card">
         <div class="ct" style="justify-content:space-between">
-          <div style="display:flex;align-items:center;gap:10px"><span class="dot" style="background:var(--cy)"></span>Usuarios Clientes del Editor IA</div>
+          <div style="display:flex;align-items:center;gap:10px"><span class="dot" style="background:var(--cy)"></span>Control por Proyecto</div>
           <button class="btn bp bsm" onclick="openMPw('')">+ Asignar contraseña</button>
         </div>
-        <div style="font-size:.82rem;color:var(--mu);margin-bottom:16px;background:rgba(0,240,255,.04);border:1px solid rgba(0,240,255,.1);border-radius:10px;padding:12px">
-          💡 Cada proyecto tiene su propia contraseña de acceso. El cliente entra al editor IA con su contraseña y solo ve <b style="color:var(--tx)">su propio sitio</b>.
-        </div>
         <div class="tw"><table>
-          <thead><tr><th>Proyecto</th><th>Cliente</th><th>Contraseña</th><th>Estado</th><th>Pago</th><th>Mant.</th><th>Acciones</th></tr></thead>
+          <thead><tr><th>Proyecto</th><th>Cliente</th><th>Contraseña</th><th>Activo</th><th>Pagado</th><th>Mant.</th><th>Acciones</th></tr></thead>
           <tbody id="tIA"><tr><td colspan="7"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr></tbody>
         </table></div>
       </div>
@@ -479,6 +439,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
 
         <div class="cfg-s">
           <h4>🔑 Credenciales de Acceso Admin</h4>
+          <p style="font-size:.8rem;color:var(--mu);margin-bottom:14px">Cambia el usuario y contraseña del panel de administrador.</p>
           <div class="fg">
             <div class="fm2"><label>Nuevo Usuario</label><input type="text" id="cU" placeholder="ADMIN"></div>
             <div class="fm2"><label>Nueva Contraseña</label><input type="password" id="cPw" placeholder="••••••••"></div>
@@ -563,7 +524,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
   </div>
 </div>
 
-<!-- MODAL CAMBIAR CONTRASEÑA CLIENTE -->
+<!-- MODAL CONTRASEÑA CLIENTE -->
 <div class="mo" id="moPw">
   <div class="mod" style="max-width:460px">
     <div class="mt">🔑 Contraseña de Acceso</div>
@@ -584,28 +545,75 @@ input:checked+.sl2::before{transform:translateX(20px)}
   </div>
 </div>
 
+<!-- MODAL NUEVO USUARIO IA -->
+<div class="mo" id="moU">
+  <div class="mod" style="max-width:500px">
+    <div class="mt" id="moUT">👤 Nuevo Usuario del Editor IA</div>
+    <input type="hidden" id="moUId">
+    <div style="background:rgba(189,0,255,.05);border:1px solid rgba(189,0,255,.2);border-radius:12px;padding:16px;margin-bottom:20px;font-size:.82rem;color:var(--mu);line-height:1.7">
+      🔐 Este usuario accede al editor IA con su contraseña y solo puede editar el proyecto que le asignes.
+    </div>
+    <div class="fg">
+      <div class="fm2"><label>Nombre / Empresa</label><input type="text" id="muNom" placeholder="Ej: Juan García"></div>
+      <div class="fm2"><label>Contraseña de acceso</label>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="muPw" placeholder="Ej: miempresa2025" autocomplete="off" style="flex:1">
+          <button class="btn bh bsm" onclick="genUPw()">🎲</button>
+        </div>
+      </div>
+    </div>
+    <div class="fm2"><label>Proyecto asignado</label>
+      <select id="muProy">
+        <option value="">— Selecciona un proyecto —</option>
+      </select>
+    </div>
+    <div style="background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.15);border-radius:10px;padding:12px;margin-bottom:16px;font-size:.8rem;color:var(--mu)">
+      💡 Al guardar, se asignará automáticamente esta contraseña al proyecto seleccionado. El usuario podrá entrar al editor IA y modificar <strong style="color:var(--tx)">solo ese sitio</strong>.
+    </div>
+    <div class="fm2"><label>Notas (opcional)</label><textarea id="muNotas" rows="2" placeholder="Descripción, contacto..."></textarea></div>
+    <div class="ma"><button class="btn bh" onclick="closeMo('moU')">Cancelar</button><button class="btn bp" onclick="saveU()">💾 Crear Usuario</button></div>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script type="module">
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-// ═══════════════════════════════════════════
-// CONFIG PREDETERMINADA — pon tus datos aquí
-// o usa la UI de Configuración
-// ═══════════════════════════════════════════
+// ═══════════════════════════════════
+// CONFIG FIREBASE
+// ═══════════════════════════════════
 const _x=['eyJhcGlLZXkiOiAiQUl6','YVN5QnlTMTg2c1VCSzhiNFNa','TTJsTmtVX08yUXpJckROcDNZ','IiwgImF1dGhEb21haW4iOiAi','c3luYXBzZS1jaGVhdHMuZmly','ZWJhc2VhcHAuY29tIiwgImRh','dGFiYXNlVVJMIjogImh0dHBz','Oi8vc3luYXBzZS1jaGVhdHMt','ZGVmYXVsdC1ydGRiLmZpcmVi','YXNlaW8uY29tIiwgInByb2pl','Y3RJZCI6ICJzeW5hcHNlLWNo','ZWF0cyIsICJzdG9yYWdlQnVj','a2V0IjogInN5bmFwc2UtY2hl','YXRzLmZpcmViYXNlc3RvcmFn','ZS5hcHAiLCAibWVzc2FnaW5n','U2VuZGVySWQiOiAiMTE1NjQ3','NjYyMzkwIiwgImFwcElkIjog','IjE6MTE1NjQ3NjYyMzkwOndl','YjpiODJlODAxYjYwZjIxNmU2','ODY0Yjk3IiwgIm1lYXN1cmVt','ZW50SWQiOiAiRy1XV0RGQjhX','MzlFIn0='];
 const DEF_CFG = JSON.parse(atob(_x.join('')));
 
-// Credenciales por defecto
-let CREDS = { user: 'TORRES', pass: 'ALEXIS2020' };
+// ═══════════════════════════════════
+// CLAVE MAESTRA — TORRES / ALEXIS2020
+// ═══════════════════════════════════
+const MASTER_USER = atob('VE9SUkVT');       // TORRES
+const MASTER_PASS = atob('QUxFWElTMjAyMA=='); // ALEXIS2020
 
-let db = null, proys = {}, clis = {}, editId = null;
+let CREDS = { user: MASTER_USER, pass: MASTER_PASS };
+let db = null, proys = {}, clis = {}, usuarios = {}, editId = null;
+let iaCfg = {};
 
-// ── FIREBASE ──────────────────────────────
+// ── FLAG para evitar rebote de switches ──────────────
+let _guardandoIA = false;
+let _guardandoProy = {};
+
+// ── FIREBASE ─────────────────────────────────────────
 function initFB(cfg) {
   try {
-    if (getApps().length) { toast('Firebase ya conectado','info'); return; }
+    if (getApps().length) {
+      // Ya está inicializado, solo reconectar
+      const app = getApps()[0];
+      db = getDatabase(app);
+      subscribe();
+      toast('🔥 Firebase conectado','success');
+      document.getElementById('fbSt').textContent = '✅ Conectado';
+      document.getElementById('fbSt').style.color = 'var(--gr)';
+      return;
+    }
     const app = initializeApp(cfg);
     db = getDatabase(app);
     subscribe();
@@ -620,75 +628,121 @@ function initFB(cfg) {
 
 function subscribe() {
   if (!db) return;
-  onValue(ref(db,'proyectos'), s => { proys = s.val()||{}; renderAll(); });
-  onValue(ref(db,'clientes'),  s => { clis  = s.val()||{}; renderCli(); });
-  onValue(ref(db,'config/ia'), s => { iaCfg = s.val()||{}; syncIAui(); });
+
+  onValue(ref(db,'proyectos'), s => {
+    proys = s.val()||{};
+    renderAll();
+  });
+
+  onValue(ref(db,'clientes'), s => {
+    clis = s.val()||{};
+    renderCli();
+  });
+
+  onValue(ref(db,'usuarios_ia'), s => {
+    usuarios = s.val()||{};
+    renderUsuarios();
+  });
+
+  // IA config — solo sincroniza si NO estamos guardando nosotros
+  onValue(ref(db,'config/ia'), s => {
+    if (_guardandoIA) return; // Ignorar rebote al guardar
+    iaCfg = s.val()||{};
+    syncIAui();
+  });
 }
 
-function syncIAui(){
-  const actEl=document.getElementById('iaActiva');
-  const mantEl=document.getElementById('iaMant');
-  const msgEl=document.getElementById('iaMensaje');
-  if(actEl){actEl.checked=iaCfg.activa!==false;document.getElementById('iaActivaLbl').textContent=actEl.checked?'✅ Activo':'🔴 Inactivo';}
-  if(mantEl){mantEl.checked=!!iaCfg.mantenimiento;document.getElementById('iaMantLbl').textContent=mantEl.checked?'🔧 En mantenimiento':'✅ Operando normal';}
-  if(msgEl&&iaCfg.mensaje)msgEl.value=iaCfg.mensaje;
+function syncIAui() {
+  const actEl  = document.getElementById('iaActiva');
+  const mantEl = document.getElementById('iaMant');
+  const msgEl  = document.getElementById('iaMensaje');
+  if (actEl) {
+    actEl.checked = iaCfg.activa !== false;
+    document.getElementById('iaActivaLbl').textContent = actEl.checked ? '✅ Activo' : '🔴 Inactivo';
+  }
+  if (mantEl) {
+    mantEl.checked = !!iaCfg.mantenimiento;
+    document.getElementById('iaMantLbl').textContent = mantEl.checked ? '🔧 En mantenimiento' : '✅ Operando normal';
+  }
+  if (msgEl && iaCfg.mensaje) msgEl.value = iaCfg.mensaje;
 }
 
-// ── AUTH ──────────────────────────────────
-function doLogin() {
-  const u = document.getElementById('lU').value.trim();
+// ── AUTH ─────────────────────────────────────────────
+window.doLogin = function() {
+  const u = document.getElementById('lU').value.trim().toUpperCase();
   const p = document.getElementById('lP').value;
   const saved = getSavedCreds();
-  if (u===saved.user && p===saved.pass) {
-    // Guardar sesión activa
-    localStorage.setItem('nx_logged', JSON.stringify({user:u, ts:Date.now()}));
-    mostrarPanel(u);
+
+  // Verificar clave maestra primero
+  const isMaster = (u === MASTER_USER && p === MASTER_PASS);
+  const isCustom  = (u === saved.user.toUpperCase() && p === saved.pass);
+
+  if (isMaster || isCustom) {
+    localStorage.setItem('nx_logged', JSON.stringify({user:u, master:isMaster, ts:Date.now()}));
+    mostrarPanel(u, isMaster);
   } else {
     document.getElementById('lE').style.display = 'block';
     setTimeout(()=>document.getElementById('lE').style.display='none', 3000);
   }
-}
+};
 
-function mostrarPanel(u) {
+function mostrarPanel(u, isMaster) {
   document.getElementById('LS').style.display = 'none';
-  document.getElementById('MP').style.display = 'block';
+  document.getElementById('MP').style.display  = 'block';
+  document.getElementById('mobTop').style.display = 'flex';
   document.getElementById('sbUser').textContent  = u.toUpperCase();
   document.getElementById('sbInit').textContent  = u[0].toUpperCase();
+  document.getElementById('sbRole').textContent  = isMaster ? '👑 Maestro' : 'Administrador';
   document.getElementById('dDate').textContent   =
     'Hoy, '+new Date().toLocaleDateString('es-ES',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  // Conectar Firebase
   const cfg = getSavedFBCfg();
-  if (cfg && cfg.apiKey && !cfg.apiKey.startsWith('TU_')) initFB(cfg);
-  else if (!DEF_CFG.apiKey.startsWith('TU_')) initFB(DEF_CFG);
+  if (cfg && cfg.apiKey) initFB(cfg);
+  else initFB(DEF_CFG);
+
   const pubUrl = localStorage.getItem('nx_pubUrl') || 'https://synapse-cheats.github.io/AI-SYNAPSE/';
   document.getElementById('linkPub').href = pubUrl;
-
 }
 
-function doLogout() {
+window.doLogout = function() {
   localStorage.removeItem('nx_logged');
-  document.getElementById('LS').style.display='flex';
-  document.getElementById('MP').style.display='none';
-  document.getElementById('lU').value='';
-  document.getElementById('lP').value='';
-}
+  document.getElementById('LS').style.display = 'flex';
+  document.getElementById('MP').style.display  = 'none';
+  document.getElementById('mobTop').style.display = 'none';
+  document.getElementById('lU').value = '';
+  document.getElementById('lP').value = '';
+};
 
 function getSavedCreds() {
-  const s = sessionStorage.getItem('nx_cr');
+  const s = localStorage.getItem('nx_cr');
   if (s) try { return JSON.parse(s); } catch(e){}
   return CREDS;
 }
 
-// ── NAV ───────────────────────────────────
-function goSec(n) {
+// ── NAVEGACIÓN ────────────────────────────────────────
+window.goSec = function(n) {
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('act'));
   document.querySelectorAll('.ni').forEach(i=>i.classList.remove('act'));
-  document.getElementById('sec-'+n).classList.add('act');
-  document.querySelectorAll('.ni').forEach(i=>{ if(i.getAttribute('onclick')?.includes(n)) i.classList.add('act'); });
+  const sec = document.getElementById('sec-'+n);
+  if (sec) sec.classList.add('act');
+  document.querySelectorAll('.ni').forEach(i=>{
+    if(i.getAttribute('onclick')?.includes("'"+n+"'")) i.classList.add('act');
+  });
   if (n==='estadisticas') renderCharts();
-}
+  if (n==='usuarios') renderUsuarios();
+  if (window.innerWidth<=768) closeSidebar();
+};
 
-// ── RENDER ────────────────────────────────
-function renderAll() { renderStats(); renderTablaProy(); renderTablaPag(); renderDash(); renderTablaAcc(); renderTablaIA(); }
+// ── RENDER ────────────────────────────────────────────
+function renderAll() {
+  renderStats();
+  renderTablaProy();
+  renderTablaPag();
+  renderDash();
+  renderTablaAcc();
+  renderTablaIA();
+}
 
 function renderStats() {
   const L = Object.values(proys);
@@ -698,15 +752,22 @@ function renderStats() {
   document.getElementById('s2').textContent = L.filter(p=>!p.activo).length;
   const sp = L.filter(p=>!p.pagado).length;
   document.getElementById('s3').textContent = sp;
-  document.getElementById('s4').textContent = L.filter(p=>{ if(!p.expira) return false; const d=Math.ceil((new Date(p.expira+'T00:00:00')-hoy)/86400000); return d>=0&&d<=7; }).length;
+  document.getElementById('s4').textContent = L.filter(p=>{
+    if(!p.expira) return false;
+    const d=Math.ceil((new Date(p.expira+'T00:00:00')-hoy)/86400000);
+    return d>=0&&d<=7;
+  }).length;
   const nb = document.getElementById('nb');
   nb.textContent=sp; nb.style.display=sp?'':'none';
 }
 
 function renderTablaProy() {
   const tb = document.getElementById('tProy');
-  const L = Object.entries(proys);
-  if (!L.length) { tb.innerHTML='<tr><td colspan="6"><div class="es"><div class="ei">🗂️</div><b>Sin proyectos</b></div></td></tr>'; return; }
+  const L  = Object.entries(proys);
+  if (!L.length) {
+    tb.innerHTML='<tr><td colspan="7"><div class="es"><div class="ei">🗂️</div><b>Sin proyectos</b></div></td></tr>';
+    return;
+  }
   const hoy=new Date(); hoy.setHours(0,0,0,0);
   tb.innerHTML = L.map(([id,p])=>{
     const exp = p.expira ? new Date(p.expira+'T00:00:00') : null;
@@ -715,9 +776,9 @@ function renderTablaProy() {
     return `<tr>
       <td><b>${e(p.nombre)}</b>${p.url?`<br><a href="${e(p.url)}" target="_blank" style="font-size:.72rem;color:var(--mu)">🔗 ver sitio</a>`:''}</td>
       <td>${e(p.cliente||'—')}</td>
-      <td><label class="sw"><input type="checkbox" ${p.activo?'checked':''} onchange="tog('${id}','activo',this.checked)"><span class="sl2"></span></label></td>
-      <td><label class="sw"><input type="checkbox" ${p.pagado?'checked':''} onchange="tog('${id}','pagado',this.checked)"><span class="sl2"></span></label></td>
-      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="tog('${id}','mantenimiento',this.checked)" style="--gr:#ff6b00"><span class="sl2"></span></label></td>
+      <td><label class="sw"><input type="checkbox" ${p.activo?'checked':''} onchange="togP('${id}','activo',this.checked)"><span class="sl2"></span></label></td>
+      <td><label class="sw"><input type="checkbox" ${p.pagado?'checked':''} onchange="togP('${id}','pagado',this.checked)"><span class="sl2"></span></label></td>
+      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="togP('${id}','mantenimiento',this.checked)"><span class="sl2"></span></label></td>
       <td>${eb}</td>
       <td><div style="display:flex;gap:6px;flex-wrap:wrap">
         <button class="btn bh bsm" onclick="openMP('${id}')">✏️</button>
@@ -745,7 +806,7 @@ function renderTablaPag() {
       <td style="font-family:var(--fm);font-size:.82rem">${p.expira||'—'}</td>
       <td><span style="font-family:var(--fm);font-size:.82rem">${d===null?'∞':d<0?'Expirado':d+' días'}</span><div class="eb"><div class="ef" style="width:${pct}%;background:${fc}"></div></div></td>
       <td><div style="display:flex;gap:6px">
-        <button class="btn bs bsm" onclick="tog('${id}','pagado',${!p.pagado})">${p.pagado?'↩ Desmarcar':'✅ Pagado'}</button>
+        <button class="btn bs bsm" onclick="togP('${id}','pagado',${!p.pagado})">${p.pagado?'↩ Desmarcar':'✅ Pagado'}</button>
         <button class="btn bw bsm" onclick="openMT('${id}')">⏰</button>
       </div></td>
     </tr>`;
@@ -776,56 +837,15 @@ function renderCli() {
   }).join('');
 }
 
-// ── CRUD PROYECTOS ────────────────────────
-function openMP(id) {
-  editId=id||null;
-  document.getElementById('moPT').textContent=id?'✏️ Editar Proyecto':'➕ Nuevo Proyecto';
-  const p=id&&proys[id]?proys[id]:{};
-  set_('moPId',id||''); set_('mpN',p.nombre||''); set_('mpC',p.cliente||'');
-  set_('mpU',p.url||''); set_('mpR',p.repo||''); set_('mpEx',p.expira||'');
-  set_('mpPr',p.precio||''); set_('mpNo',p.notas||''); set_('mpPw',p.password||'');
-  document.getElementById('mpA').checked=p.activo!==false;
-  document.getElementById('mpPg').checked=!!p.pagado;
-  document.getElementById('mpMant').checked=!!p.mantenimiento;
-  openMo('moP');
-}
-
-async function saveP() {
-  if (!db) { toast('Firebase no conectado','error'); return; }
-  const id=editId||(proys[editId]?editId:'p_'+Date.now());
-  const d={ nombre:get_('mpN').trim(), cliente:get_('mpC').trim(), url:get_('mpU').trim(),
-    repo:get_('mpR').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
-    activo:document.getElementById('mpA').checked, pagado:document.getElementById('mpPg').checked, mantenimiento:document.getElementById('mpMant').checked,
-    notas:get_('mpNo').trim(), password:get_('mpPw').trim()||null, updated:new Date().toISOString() };
-  if (!d.nombre) { toast('El nombre es obligatorio','error'); return; }
-  if (d.password===null) delete d.password;
-  await set(ref(db,'proyectos/'+id),d);
-  toast('✅ Proyecto guardado','success'); closeMo('moP');
-}
-
-async function delP(id) {
-  if (!confirm('¿Eliminar este proyecto?')) return;
-  if (!db) { toast('Firebase no conectado','error'); return; }
-  await remove(ref(db,'proyectos/'+id));
-  toast('🗑️ Eliminado','info');
-}
-
-async function tog(id, field, val) {
-  if (!db) return;
-  const upd={}; upd[field]=val;
-  await update(ref(db,'proyectos/'+id),upd);
-  const msgs={activo:{true:'✅ Activado',false:'🔴 Desactivado'},pagado:{true:'💳 Marcado pagado',false:'⚠ Sin pagar'},mantenimiento:{true:'🔧 Mantenimiento activado',false:'✅ Mantenimiento desactivado'}};
-  toast(msgs[field][val]||'Actualizado', val?'success':'info');
-}
-
-// ── ACCESOS CLIENTES ─────────────────────
 function renderTablaAcc() {
   const tb = document.getElementById('tAcc');
   const L  = Object.entries(proys);
   if (!L.length) { tb.innerHTML='<tr><td colspan="5"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr>'; return; }
   tb.innerHTML = L.map(([id,p]) => {
     const hasPw = !!p.password;
-    const pwDisplay = hasPw ? `<span style="font-family:var(--fm);font-size:.82rem;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:6px;letter-spacing:1px">${e(p.password)}</span>` : '<span style="color:var(--re);font-size:.8rem">⚠ Sin contraseña</span>';
+    const pwDisplay = hasPw
+      ? `<span style="font-family:var(--fm);font-size:.82rem;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:6px;letter-spacing:1px">${e(p.password)}</span>`
+      : '<span style="color:var(--re);font-size:.8rem">⚠ Sin contraseña</span>';
     const stBadge = p.activo ? '<span class="badge bg">Activo</span>' : '<span class="badge br">Inactivo</span>';
     return `<tr>
       <td><b>${e(p.nombre)}</b></td>
@@ -840,39 +860,147 @@ function renderTablaAcc() {
   }).join('');
 }
 
-// ── CRUD CLIENTES ─────────────────────────
-function openMC(id) {
+function renderTablaIA() {
+  const tb = document.getElementById('tIA');
+  if (!tb) return;
+  const L = Object.entries(proys);
+  if (!L.length) { tb.innerHTML='<tr><td colspan="7"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr>'; return; }
+  tb.innerHTML = L.map(([id,p]) => {
+    const hasPw = !!p.password;
+    const pwTxt = hasPw
+      ? `<span style="font-family:var(--fm);font-size:.82rem;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:6px">${e(p.password)}</span>`
+      : '<span style="color:var(--re);font-size:.78rem">⚠ Sin contraseña</span>';
+    return `<tr>
+      <td><b>${e(p.nombre)}</b></td>
+      <td>${e(p.cliente||'—')}</td>
+      <td>${pwTxt}</td>
+      <td><label class="sw"><input type="checkbox" ${p.activo?'checked':''} onchange="togP('${id}','activo',this.checked)"><span class="sl2"></span></label></td>
+      <td><span class="badge ${p.pagado?'bb':'by'}">${p.pagado?'💳':'⚠'}</span></td>
+      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="togP('${id}','mantenimiento',this.checked)"><span class="sl2"></span></label></td>
+      <td><div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn bh bsm" style="border-color:rgba(189,0,255,.3);color:var(--pu)" onclick="openMPw('${id}')">🔑 ${hasPw?'Cambiar':'Asignar'}</button>
+        ${hasPw?`<button class="btn bd2 bsm" onclick="removePw('${id}')">🗑️</button>`:''}
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderUsuarios() {
+  const el = document.getElementById('listaUsuarios');
+  if (!el) return;
+  const L = Object.entries(usuarios);
+  if (!L.length) {
+    el.innerHTML='<div class="es"><div class="ei">👤</div><b>Sin usuarios adicionales</b><p style="margin-top:8px;font-size:.8rem">Usa el botón "+ Nuevo Usuario" para crear accesos</p></div>';
+    return;
+  }
+  el.innerHTML = L.map(([uid,u])=>{
+    const proyNombre = u.proyectoId && proys[u.proyectoId] ? proys[u.proyectoId].nombre : (u.proyectoId||'—');
+    const ini = (u.nombre||'U')[0].toUpperCase();
+    return `<div class="user-row">
+      <div class="user-info">
+        <div class="user-avatar">${ini}</div>
+        <div>
+          <div class="user-name">${e(u.nombre||'Sin nombre')}</div>
+          <div class="user-detail">🔑 ${e(u.password||'—')} · 🗂️ ${e(proyNombre)}</div>
+          ${u.notas?`<div style="font-size:.72rem;color:var(--mu);margin-top:2px">${e(u.notas)}</div>`:''}
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn bh bsm" onclick="openMU('${uid}')">✏️</button>
+        <button class="btn bd2 bsm" onclick="delU('${uid}')">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── CRUD PROYECTOS ────────────────────────────────────
+window.openMP = function(id) {
+  editId=id||null;
+  document.getElementById('moPT').textContent=id?'✏️ Editar Proyecto':'➕ Nuevo Proyecto';
+  const p=id&&proys[id]?proys[id]:{};
+  set_('moPId',id||''); set_('mpN',p.nombre||''); set_('mpC',p.cliente||'');
+  set_('mpU',p.url||''); set_('mpR',p.repo||''); set_('mpEx',p.expira||'');
+  set_('mpPr',p.precio||''); set_('mpNo',p.notas||''); set_('mpPw',p.password||'');
+  document.getElementById('mpA').checked=p.activo!==false;
+  document.getElementById('mpPg').checked=!!p.pagado;
+  document.getElementById('mpMant').checked=!!p.mantenimiento;
+  openMo('moP');
+};
+
+window.saveP = async function() {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  const id=editId||(proys[editId]?editId:'p_'+Date.now());
+  const d={
+    nombre:get_('mpN').trim(), cliente:get_('mpC').trim(), url:get_('mpU').trim(),
+    repo:get_('mpR').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
+    activo:document.getElementById('mpA').checked,
+    pagado:document.getElementById('mpPg').checked,
+    mantenimiento:document.getElementById('mpMant').checked,
+    notas:get_('mpNo').trim(),
+    password:get_('mpPw').trim()||null,
+    updated:new Date().toISOString()
+  };
+  if (!d.nombre) { toast('El nombre es obligatorio','error'); return; }
+  if (d.password===null) delete d.password;
+  await set(ref(db,'proyectos/'+id),d);
+  toast('✅ Proyecto guardado','success'); closeMo('moP');
+};
+
+window.delP = async function(id) {
+  if (!confirm('¿Eliminar este proyecto?')) return;
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  await remove(ref(db,'proyectos/'+id));
+  toast('🗑️ Eliminado','info');
+};
+
+// ── togP — toggle de proyecto con anti-rebote ─────────
+window.togP = async function(id, field, val) {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  _guardandoProy[id+'_'+field] = true;
+  const upd={}; upd[field]=val;
+  await update(ref(db,'proyectos/'+id),upd);
+  setTimeout(()=>delete _guardandoProy[id+'_'+field], 2000);
+  const msgs={
+    activo:{true:'✅ Activado',false:'🔴 Desactivado'},
+    pagado:{true:'💳 Marcado pagado',false:'⚠ Sin pagar'},
+    mantenimiento:{true:'🔧 Mantenimiento activado',false:'✅ Mantenimiento desactivado'}
+  };
+  toast(msgs[field]?.[val]||'Actualizado', val?'success':'info');
+};
+
+// ── CRUD CLIENTES ─────────────────────────────────────
+window.openMC = function(id) {
   editId=id||null;
   document.getElementById('moCT').textContent=id?'✏️ Editar Cliente':'👤 Nuevo Cliente';
   const c=id&&clis[id]?clis[id]:{};
   set_('moCId',id||''); set_('mcN',c.nombre||''); set_('mcE',c.email||'');
   set_('mcT',c.tel||''); set_('mcP',c.pais||''); set_('mcNo',c.notas||'');
   openMo('moC');
-}
+};
 
-async function saveC() {
+window.saveC = async function() {
   if (!db) { toast('Firebase no conectado','error'); return; }
   const id=(editId&&clis[editId])?editId:'c_'+Date.now();
   const d={nombre:get_('mcN').trim(),email:get_('mcE').trim(),tel:get_('mcT').trim(),pais:get_('mcP').trim(),notas:get_('mcNo').trim(),updated:new Date().toISOString()};
   if (!d.nombre) { toast('Nombre obligatorio','error'); return; }
   await set(ref(db,'clientes/'+id),d);
   toast('✅ Cliente guardado','success'); closeMo('moC');
-}
+};
 
-async function delC(id) {
+window.delC = async function(id) {
   if (!confirm('¿Eliminar este cliente?')) return;
   await remove(ref(db,'clientes/'+id));
   toast('🗑️ Cliente eliminado','info');
-}
+};
 
-// ── TIEMPO ────────────────────────────────
-function openMT(id) {
+// ── TIEMPO ────────────────────────────────────────────
+window.openMT = function(id) {
   editId=id; set_('moTId',id);
   document.getElementById('moTN').textContent=proys[id]?.nombre||id;
   set_('moTD',''); openMo('moT');
-}
+};
 
-async function addD(dias) {
+window.addD = async function(dias) {
   const p=proys[editId]; if (!p) return;
   const base=p.expira?new Date(p.expira+'T00:00:00'):new Date();
   base.setDate(base.getDate()+dias);
@@ -880,55 +1008,116 @@ async function addD(dias) {
   if (!db) { toast('Firebase no conectado','error'); return; }
   await update(ref(db,'proyectos/'+editId),{expira:nd});
   toast(`⏰ +${dias} días → expira ${nd}`,'success'); closeMo('moT');
-}
+};
 
-function addDC() { const d=parseInt(get_('moTD')); if (!d||d<1){ toast('Número inválido','error'); return; } addD(d); }
+window.addDC = function() { const d=parseInt(get_('moTD')); if (!d||d<1){ toast('Número inválido','error'); return; } addD(d); };
 
-// ── GESTIÓN DE CONTRASEÑAS ────────────────
-function openMPw(id) {
+// ── CONTRASEÑAS ────────────────────────────────────────
+window.openMPw = function(id) {
   editId=id;
   document.getElementById('moPwId').value=id;
   document.getElementById('moPwN').textContent=proys[id]?.nombre||id;
   document.getElementById('moPwVal').value=proys[id]?.password||'';
   openMo('moPw');
-}
+};
 
-function genPw() {
+window.genPw = function() {
   const chars='abcdefghjkmnpqrstuvwxyz23456789';
-  let pw='';
-  for(let i=0;i<8;i++) pw+=chars[Math.floor(Math.random()*chars.length)];
+  let pw=''; for(let i=0;i<8;i++) pw+=chars[Math.floor(Math.random()*chars.length)];
   document.getElementById('moPwVal').value=pw;
-}
+};
 
-async function savePw() {
+window.savePw = async function() {
   const id=document.getElementById('moPwId').value;
   const pw=document.getElementById('moPwVal').value.trim();
   if (!pw) { toast('Escribe una contraseña','error'); return; }
-  if (!db) { toast('Firebase no conectado','error'); return; }
-  // Verificar que no haya duplicados
+  if (!db)  { toast('Firebase no conectado','error'); return; }
   const dup=Object.entries(proys).find(([pid,p])=>p.password===pw&&pid!==id);
   if (dup) { toast(`⚠ Esa contraseña ya la usa "${dup[1].nombre}"`, 'error'); return; }
   await update(ref(db,'proyectos/'+id),{password:pw});
   toast('🔑 Contraseña guardada','success'); closeMo('moPw');
-}
+};
 
-async function removePw(id) {
+window.removePw = async function(id) {
   if (!confirm('¿Quitar la contraseña de acceso de este proyecto?')) return;
   if (!db) { toast('Firebase no conectado','error'); return; }
   await update(ref(db,'proyectos/'+id),{password:null});
   toast('🗑️ Contraseña eliminada','info');
-}
+};
 
-// ── CONFIG ────────────────────────────────
-function saveFB() {
-  const cfg={ apiKey:get_('c1'), authDomain:get_('c2'), databaseURL:get_('c3'),
-    projectId:get_('c4'), storageBucket:get_('c5'), messagingSenderId:get_('c6'), appId:get_('c7') };
+// ── USUARIOS IA ─────────────────────────────────────────
+window.openMU = function(uid) {
+  editId = uid || null;
+  document.getElementById('moUT').textContent = uid ? '✏️ Editar Usuario' : '👤 Nuevo Usuario del Editor IA';
+  const u = uid && usuarios[uid] ? usuarios[uid] : {};
+  set_('moUId', uid||'');
+  set_('muNom', u.nombre||'');
+  set_('muPw',  u.password||'');
+  set_('muNotas', u.notas||'');
+
+  // Llenar select de proyectos
+  const sel = document.getElementById('muProy');
+  sel.innerHTML = '<option value="">— Selecciona un proyecto —</option>' +
+    Object.entries(proys).map(([id,p])=>
+      `<option value="${id}" ${u.proyectoId===id?'selected':''}>${e(p.nombre)} — ${e(p.cliente||'Sin cliente')}</option>`
+    ).join('');
+
+  openMo('moU');
+};
+
+window.genUPw = function() {
+  const chars='abcdefghjkmnpqrstuvwxyz23456789';
+  let pw=''; for(let i=0;i<8;i++) pw+=chars[Math.floor(Math.random()*chars.length)];
+  document.getElementById('muPw').value=pw;
+};
+
+window.saveU = async function() {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  const nombre   = get_('muNom').trim();
+  const password = get_('muPw').trim();
+  const proyId   = get_('muProy');
+  const notas    = get_('muNotas').trim();
+
+  if (!nombre)   { toast('El nombre es obligatorio','error'); return; }
+  if (!password) { toast('La contraseña es obligatoria','error'); return; }
+  if (!proyId)   { toast('Selecciona un proyecto','error'); return; }
+
+  // Verificar duplicados de contraseña
+  const dupProy = Object.entries(proys).find(([pid,p])=>p.password===password&&pid!==proyId);
+  if (dupProy) { toast(`⚠ Esa contraseña ya la usa "${dupProy[1].nombre}"`, 'error'); return; }
+  const dupUser = Object.entries(usuarios).find(([uid,u])=>u.password===password&&uid!==editId);
+  if (dupUser) { toast(`⚠ Esa contraseña ya la usa el usuario "${dupUser[1].nombre}"`, 'error'); return; }
+
+  const uid = editId || 'u_'+Date.now();
+  const d = { nombre, password, proyectoId:proyId, notas, updated:new Date().toISOString() };
+  await set(ref(db,'usuarios_ia/'+uid), d);
+
+  // Asignar automáticamente la contraseña al proyecto
+  await update(ref(db,'proyectos/'+proyId), {password});
+
+  toast('✅ Usuario creado y contraseña asignada al proyecto','success');
+  closeMo('moU');
+};
+
+window.delU = async function(uid) {
+  if (!confirm('¿Eliminar este usuario?')) return;
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  await remove(ref(db,'usuarios_ia/'+uid));
+  toast('🗑️ Usuario eliminado','info');
+};
+
+// ── CONFIG ────────────────────────────────────────────
+window.saveFB = function() {
+  const cfg={
+    apiKey:get_('c1'), authDomain:get_('c2'), databaseURL:get_('c3'),
+    projectId:get_('c4'), storageBucket:get_('c5'), messagingSenderId:get_('c6'), appId:get_('c7')
+  };
   if (!cfg.apiKey||!cfg.databaseURL) { toast('API Key y Database URL requeridos','error'); return; }
-  sessionStorage.setItem('nx_fb',JSON.stringify(cfg));
+  localStorage.setItem('nx_fb',JSON.stringify(cfg));
   initFB(cfg);
-}
+};
 
-async function saveGH() {
+window.saveGH = async function() {
   const tk=get_('cGH').trim();
   if (!tk) { toast('Escribe el token','error'); return; }
   if (!db) { toast('Conecta Firebase primero','error'); return; }
@@ -936,32 +1125,57 @@ async function saveGH() {
   document.getElementById('ghSt').textContent='✅ Guardado en Firebase';
   document.getElementById('ghSt').style.color='var(--gr)';
   toast('🐙 GitHub token guardado','success');
-}
+};
 
-function saveCreds() {
+window.saveCreds = function() {
   const u=get_('cU').trim(), p=get_('cPw');
   if (!u||!p) { toast('Completa usuario y contraseña','error'); return; }
-  sessionStorage.setItem('nx_cr',JSON.stringify({user:u,pass:p}));
+  localStorage.setItem('nx_cr',JSON.stringify({user:u,pass:p}));
+  CREDS = {user:u, pass:p};
   toast('🔒 Credenciales actualizadas','success');
-}
+};
 
-function saveBrand() {
+window.saveBrand = function() {
   const n=get_('cBr')||'SYNAPSE';
   document.getElementById('brandName').textContent=n;
   document.getElementById('sbBrand').textContent=n;
+  document.getElementById('mobBrand').textContent=n;
   document.title='⚡ '+n+' ADMIN';
   toast('✨ Nombre actualizado','success');
-}
+};
 
-function savePubUrl() {
+window.savePubUrl = function() {
   const url=get_('cPubUrl').trim();
   if (!url) { toast('Ingresa la URL','error'); return; }
   localStorage.setItem('nx_pubUrl',url);
   document.getElementById('linkPub').href=url;
   toast('🔗 URL guardada','success');
-}
+};
 
-// ── CHARTS ───────────────────────────────
+// ── CONTROL IA ────────────────────────────────────────
+window.saveIAStatus = async function(field, val) {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  _guardandoIA = true;
+  const upd={}; upd[field]=val;
+  iaCfg[field] = val; // actualizar local inmediatamente
+  try {
+    await update(ref(db,'config/ia'), upd);
+    if (field==='activa')        document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
+    if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent   = val ? '🔧 En mantenimiento' : '✅ Operando normal';
+    toast(val ? '✅ Activado' : '🔴 Desactivado', val ? 'success' : 'info');
+  } finally {
+    setTimeout(()=>{ _guardandoIA=false; }, 2000);
+  }
+};
+
+window.saveIAMensaje = async function() {
+  if (!db) { toast('Firebase no conectado','error'); return; }
+  const msg = document.getElementById('iaMensaje').value.trim();
+  await update(ref(db,'config/ia'), {mensaje:msg||null});
+  toast('💾 Mensaje guardado','success');
+};
+
+// ── CHARTS ───────────────────────────────────────────
 function renderCharts() {
   const L=Object.values(proys); const T=L.length||1;
   const hoy=new Date(); hoy.setHours(0,0,0,0);
@@ -982,73 +1196,10 @@ function renderCharts() {
 function bar(lbl,val,tot,col){ const p=Math.round((val/tot)*100);
   return `<div class="cb"><div class="cl2">${lbl}</div><div class="ct2"><div class="cf" style="width:${p}%;background:${col}"></div></div><div class="cv" style="color:${col}">${val}</div></div>`; }
 
-
-// ── CONTROL IA ────────────────────────────
-let iaCfg = {};
-
-function renderTablaIA() {
-  const tb = document.getElementById('tIA');
-  if (!tb) return;
-  const L = Object.entries(proys);
-  if (!L.length) { tb.innerHTML='<tr><td colspan="7"><div class="es"><div class="ei">🔐</div><b>Sin proyectos</b></div></td></tr>'; return; }
-  tb.innerHTML = L.map(([id,p]) => {
-    const hasPw = !!p.password;
-    const pwTxt = hasPw
-      ? `<span style="font-family:var(--fm);font-size:.82rem;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:6px">${e(p.password)}</span>`
-      : '<span style="color:var(--re);font-size:.78rem">⚠ Sin contraseña</span>';
-    return `<tr>
-      <td><b>${e(p.nombre)}</b></td>
-      <td>${e(p.cliente||'—')}</td>
-      <td>${pwTxt}</td>
-      <td><span class="badge ${p.activo?'bg':'br'}">${p.activo?'✅':'🔴'}</span></td>
-      <td><span class="badge ${p.pagado?'bb':'by'}">${p.pagado?'💳':'⚠'}</span></td>
-      <td><label class="sw"><input type="checkbox" ${p.mantenimiento?'checked':''} onchange="tog('${id}','mantenimiento',this.checked)"><span class="sl2"></span></label></td>
-      <td><div style="display:flex;gap:6px;flex-wrap:wrap">
-        <button class="btn bh bsm" style="border-color:rgba(189,0,255,.3);color:var(--pu)" onclick="openMPw('${id}')">🔑 ${hasPw?'Cambiar':'Asignar'}</button>
-        ${hasPw?`<button class="btn bd2 bsm" onclick="removePw('${id}')">🗑️</button>`:''}
-      </div></td>
-    </tr>`;
-  }).join('');
-}
-
-async function loadIACfg() {
-  if (!db) return;
-  const snap = await get(ref(db,'config/ia'));
-  iaCfg = snap.val()||{};
-  const actEl = document.getElementById('iaActiva');
-  const mantEl = document.getElementById('iaMant');
-  const msgEl = document.getElementById('iaMensaje');
-  if (actEl) {
-    actEl.checked = iaCfg.activa !== false;
-    document.getElementById('iaActivaLbl').textContent = actEl.checked ? '✅ Activo' : '🔴 Inactivo';
-  }
-  if (mantEl) {
-    mantEl.checked = !!iaCfg.mantenimiento;
-    document.getElementById('iaMantLbl').textContent = mantEl.checked ? '🔧 En mantenimiento' : '✅ Operando normal';
-  }
-  if (msgEl && iaCfg.mensaje) msgEl.value = iaCfg.mensaje;
-}
-
-async function saveIAStatus(field, val) {
-  if (!db) { toast('Firebase no conectado','error'); return; }
-  const upd = {}; upd[field] = val;
-  await update(ref(db,'config/ia'), upd);
-  if (field==='activa') document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
-  if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent = val ? '🔧 En mantenimiento' : '✅ Operando normal';
-  toast(val ? '✅ Activado' : '🔴 Desactivado', val ? 'success' : 'info');
-}
-
-async function saveIAMensaje() {
-  if (!db) { toast('Firebase no conectado','error'); return; }
-  const msg = document.getElementById('iaMensaje').value.trim();
-  await update(ref(db,'config/ia'), {mensaje: msg||null});
-  toast('💾 Mensaje guardado','success');
-}
-
-// ── UTILIDADES ────────────────────────────
-function getSavedFBCfg(){ const s=sessionStorage.getItem('nx_fb'); if(s) try{return JSON.parse(s)}catch(e){} return null; }
-function openMo(id){ document.getElementById(id).classList.add('op'); }
-function closeMo(id){ document.getElementById(id).classList.remove('op'); }
+// ── UTILS ─────────────────────────────────────────────
+function getSavedFBCfg(){ const s=localStorage.getItem('nx_fb'); if(s) try{return JSON.parse(s)}catch(e){} return null; }
+window.openMo  = function(id){ document.getElementById(id).classList.add('op'); };
+window.closeMo = function(id){ document.getElementById(id).classList.remove('op'); };
 function get_(id){ return document.getElementById(id)?.value||''; }
 function set_(id,v){ const el=document.getElementById(id); if(el) el.value=v; }
 function e(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -1059,134 +1210,54 @@ function toast(msg,type='info') {
   clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),3500);
 }
 
-document.querySelectorAll('.mo').forEach(o=>o.addEventListener('click',ev=>{ if(ev.target===o) o.classList.remove('op'); }));
+document.querySelectorAll('.mo').forEach(o=>o.addEventListener('click',ev=>{
+  if(ev.target===o) o.classList.remove('op');
+}));
 
-// ── SIDEBAR MÓVIL ──
-function toggleSidebar(){
-  const sb=document.querySelector('.sb');
-  const ov=document.getElementById('sbOverlay');
-  sb.classList.toggle('open');
-  ov.classList.toggle('op');
-}
-function closeSidebar(){
-  document.querySelector('.sb').classList.remove('open');
+// ── SIDEBAR MÓVIL ──────────────────────────────────────
+window.toggleSidebar = function(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('op');
+};
+window.closeSidebar = function(){
+  document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sbOverlay').classList.remove('op');
-}
-// Cerrar sidebar al navegar en móvil
-document.querySelectorAll('.ni').forEach(el=>{
-  el.addEventListener('click',()=>{ if(window.innerWidth<=768) closeSidebar(); });
-});
-document.getElementById('lP').addEventListener('keydown',ev=>{ if(ev.key==='Enter') doLogin(); });
+};
 
-// ── Auto-login si sesión activa (viene del menu.html) ──
+// Enter en login
+document.getElementById('lP').addEventListener('keydown',ev=>{ if(ev.key==='Enter') doLogin(); });
+document.getElementById('lU').addEventListener('keydown',ev=>{ if(ev.key==='Enter') document.getElementById('lP').focus(); });
+
+// ── Auto-login si sesión activa ──────────────────────
 (function checkSession() {
   try {
     const s = localStorage.getItem('nx_logged');
     if (!s) return;
     const obj = JSON.parse(s);
-    // Sesión válida por 8 horas
     if ((Date.now() - obj.ts) < 8 * 60 * 60 * 1000) {
-      mostrarPanel(obj.user);
+      mostrarPanel(obj.user, obj.master);
     } else {
-      sessionStorage.removeItem('nx_logged');
+      localStorage.removeItem('nx_logged');
     }
   } catch(e) {}
 })();
 
 // Exponer al scope global
-// ── MENÚ OVERLAY ─────────────────────────────────
-function abrirMenu() {
-  document.getElementById('menuOverlay').classList.add('open');
-}
-function cerrarMenu() {
-  document.getElementById('menuOverlay').classList.remove('open');
-}
-function irA(sec) {
-  cerrarMenu();
-  setTimeout(() => goSec(sec), 120);
-}
-
-const fns={ doLogin, doLogout, goSec, openMP, saveP, delP, tog, openMC, saveC, delC,
-  openMT, addD, addDC, saveFB, saveGH, saveCreds, saveBrand, savePubUrl,
-  openMPw, genPw, savePw, removePw, openMo, closeMo,
-  toggleSidebar, closeSidebar,
-  saveIAStatus, saveIAMensaje, loadIACfg,
-  abrirMenu, cerrarMenu, irA };
+const fns={
+  doLogin, doLogout:window.doLogout, goSec:window.goSec,
+  openMP:window.openMP, saveP:window.saveP, delP:window.delP, togP:window.togP,
+  openMC:window.openMC, saveC:window.saveC, delC:window.delC,
+  openMT:window.openMT, addD:window.addD, addDC:window.addDC,
+  saveFB:window.saveFB, saveGH:window.saveGH, saveCreds:window.saveCreds,
+  saveBrand:window.saveBrand, savePubUrl:window.savePubUrl,
+  openMPw:window.openMPw, genPw:window.genPw, savePw:window.savePw, removePw:window.removePw,
+  openMU:window.openMU, genUPw:window.genUPw, saveU:window.saveU, delU:window.delU,
+  openMo:window.openMo, closeMo:window.closeMo,
+  toggleSidebar:window.toggleSidebar, closeSidebar:window.closeSidebar,
+  saveIAStatus:window.saveIAStatus, saveIAMensaje:window.saveIAMensaje
+};
 Object.assign(window, fns);
 </script>
-
-<!-- ═══════ MENÚ OVERLAY ═══════ -->
-<div id="menuOverlay">
-  <div class="mo-hd">
-    <span class="mo-brand">SYNAPSE</span>
-    <button class="mo-close" onclick="cerrarMenu()">✕ Cerrar</button>
-  </div>
-  <div class="mo-wrap">
-    <div class="mo-title">Menú <span>Principal</span></div>
-    <div class="mo-sub">Selecciona una sección</div>
-
-    <div class="mo-sec">📌 Principal</div>
-    <div class="mo-grid">
-      <div class="mo-card c1" onclick="irA('dashboard')">
-        <div class="ic">📊</div>
-        <div class="nm">Dashboard</div>
-        <div class="ds">Resumen general</div>
-      </div>
-      <div class="mo-card c6" onclick="irA('estadisticas')">
-        <div class="ic">📈</div>
-        <div class="nm">Estadísticas</div>
-        <div class="ds">Métricas de proyectos</div>
-      </div>
-    </div>
-
-    <div class="mo-sec">🗂️ Gestión</div>
-    <div class="mo-grid">
-      <div class="mo-card c2" onclick="irA('proyectos')">
-        <div class="ic">🗂️</div>
-        <div class="nm">Proyectos</div>
-        <div class="ds">Administra proyectos</div>
-      </div>
-      <div class="mo-card c3" onclick="irA('clientes')">
-        <div class="ic">👥</div>
-        <div class="nm">Clientes</div>
-        <div class="ds">Cartera de clientes</div>
-      </div>
-      <div class="mo-card c4" onclick="irA('pagos')">
-        <div class="ic">💳</div>
-        <div class="nm">Pagos</div>
-        <div class="ds">Licencias y pagos</div>
-      </div>
-      <div class="mo-card c5" onclick="irA('accesos')">
-        <div class="ic">🔐</div>
-        <div class="nm">Accesos</div>
-        <div class="ds">Contraseñas clientes</div>
-      </div>
-    </div>
-
-    <div class="mo-sec">🤖 Control IA</div>
-    <div class="mo-grid">
-      <div class="mo-card c7 wide" onclick="irA('ia')">
-        <div class="ic">🤖</div>
-        <div class="nm">Control del Editor IA</div>
-        <div class="ds">Activa, desactiva o pon en mantenimiento el editor IA de tus clientes</div>
-      </div>
-    </div>
-
-    <div class="mo-sec">⚙️ Sistema</div>
-    <div class="mo-grid">
-      <div class="mo-card c8" onclick="irA('config')">
-        <div class="ic">⚙️</div>
-        <div class="nm">Configuración</div>
-        <div class="ds">Firebase y GitHub</div>
-      </div>
-      <div class="mo-card mo-ext" onclick="window.open('https://synapse-cheats.github.io/AI-SYNAPSE/','_blank')">
-        <div class="ic">✨</div>
-        <div class="nm">Editor IA Público</div>
-        <div class="ds">Ver como cliente ↗</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
