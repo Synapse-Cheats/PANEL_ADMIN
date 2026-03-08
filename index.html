@@ -431,7 +431,12 @@ input:checked+.sl2::before{transform:translateX(20px)}
 
         <div class="cfg-s">
           <h4>🐙 GitHub Token (para publicar páginas)</h4>
-          <p style="font-size:.8rem;color:var(--mu);margin-bottom:14px">Se guarda en Firebase y lo usará la página pública de clientes para publicar cambios.</p>
+          <p style="font-size:.8rem;color:var(--mu);margin-bottom:10px">Se guarda en Firebase y lo usará la página pública de clientes para publicar cambios.</p>
+          <div style="background:rgba(0,240,255,.05);border:1px solid rgba(0,240,255,.15);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:.78rem;color:var(--mu);line-height:1.8">
+            ⚠️ El token debe tener permiso <strong style="color:var(--cy)">repo</strong> (classic token).<br>
+            Crea uno en: <strong>GitHub → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</strong><br>
+            Activa los permisos: <code style="color:var(--gr)">repo</code> y <code style="color:var(--gr)">workflow</code>
+          </div>
           <div class="fm2"><label>GitHub Personal Access Token</label><input type="password" id="cGH" placeholder="ghp_xxxxxxxxxxxxxxxxxx" value="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"></div>
           <button class="btn bh" onclick="saveGH()">🔒 Guardar Token en Firebase</button>
           <span id="ghSt" style="margin-left:12px;font-size:.8rem;color:var(--mu)"></span>
@@ -474,7 +479,8 @@ input:checked+.sl2::before{transform:translateX(20px)}
       <div class="fm2"><label>Nombre del Proyecto</label><input type="text" id="mpN" placeholder="Mi Sitio Web"></div>
       <div class="fm2"><label>Cliente</label><input type="text" id="mpC" placeholder="Nombre del cliente"></div>
       <div class="fm2"><label>URL del Sitio</label><input type="text" id="mpU" placeholder="https://usuario.github.io/repo"></div>
-      <div class="fm2"><label>Repo GitHub (usuario/repo)</label><input type="text" id="mpR" placeholder="usuario/repo"></div>
+      <div class="fm2"><label>Repo GitHub (usuario/repo)</label><input type="text" id="mpR" placeholder="synapse-cheats/synapse-cheats.github.io"></div>
+      <div class="fm2"><label>Ruta en el Repo (subcarpeta)</label><input type="text" id="mpRuta" placeholder="VicleyStore (dejar vacío si está en raíz)"></div>
       <div class="fm2"><label>Fecha Expiración</label><input type="date" id="mpEx"></div>
       <div class="fm2"><label>Precio (USD)</label><input type="number" id="mpPr" placeholder="0" min="0"></div>
       <div class="fm2"><label>🔑 Contraseña de acceso para el cliente</label><input type="text" id="mpPw" placeholder="Ej: miempresa2024" autocomplete="off"></div>
@@ -919,7 +925,7 @@ window.openMP = function(id) {
   document.getElementById('moPT').textContent=id?'✏️ Editar Proyecto':'➕ Nuevo Proyecto';
   const p=id&&proys[id]?proys[id]:{};
   set_('moPId',id||''); set_('mpN',p.nombre||''); set_('mpC',p.cliente||'');
-  set_('mpU',p.url||''); set_('mpR',p.repo||''); set_('mpEx',p.expira||'');
+  set_('mpU',p.url||''); set_('mpR',p.repo||''); set_('mpRuta',p.ruta||''); set_('mpEx',p.expira||'');
   set_('mpPr',p.precio||''); set_('mpNo',p.notas||''); set_('mpPw',p.password||'');
   document.getElementById('mpA').checked=p.activo!==false;
   document.getElementById('mpPg').checked=!!p.pagado;
@@ -932,7 +938,7 @@ window.saveP = async function() {
   const id=editId||(proys[editId]?editId:'p_'+Date.now());
   const d={
     nombre:get_('mpN').trim(), cliente:get_('mpC').trim(), url:get_('mpU').trim(),
-    repo:get_('mpR').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
+    repo:get_('mpR').trim(), ruta:get_('mpRuta').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
     activo:document.getElementById('mpA').checked,
     pagado:document.getElementById('mpPg').checked,
     mantenimiento:document.getElementById('mpMant').checked,
