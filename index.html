@@ -200,7 +200,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
 <!-- MÓVIL TOP BAR -->
 <div class="mob-top" style="display:none" id="mobTop">
   <span class="mob-brand" id="mobBrand">SYNAPSE</span>
-  <a class="mob-menu-btn" href="menu.html" style="text-decoration:none;display:flex;align-items:center;justify-content:center">☰</a>
+  <a class="mob-menu-btn" href="https://synapse-cheats.github.io/PANEL_ADMIN/menu.html" style="text-decoration:none;display:flex;align-items:center;justify-content:center">☰</a>
 </div>
 <div class="sb-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
 
@@ -478,8 +478,8 @@ input:checked+.sl2::before{transform:translateX(20px)}
     <div class="fg">
       <div class="fm2"><label>Nombre del Proyecto</label><input type="text" id="mpN" placeholder="Mi Sitio Web"></div>
       <div class="fm2"><label>Cliente</label><input type="text" id="mpC" placeholder="Nombre del cliente"></div>
-      <div class="fm2"><label>URL del Sitio</label><input type="text" id="mpU" placeholder="https://usuario.github.io/repo"></div>
-      <div class="fm2"><label>Repo GitHub (usuario/repo)</label><input type="text" id="mpR" placeholder="synapse-cheats/synapse-cheats.github.io"></div>
+      <div class="fm2"><label>URL del Sitio</label><input type="text" id="mpU" placeholder="https://synapse-cheats.github.io/Modsljak"></div>
+      <div class="fm2"><label>Repo GitHub (usuario/repo)</label><input type="text" id="mpR" placeholder="synapse-cheats/Modsljak"></div>
       <div class="fm2"><label>Ruta en el Repo (subcarpeta)</label><input type="text" id="mpRuta" placeholder="VicleyStore (dejar vacío si está en raíz)"></div>
       <div class="fm2"><label>Fecha Expiración</label><input type="date" id="mpEx"></div>
       <div class="fm2"><label>Precio (USD)</label><input type="number" id="mpPr" placeholder="0" min="0"></div>
@@ -608,21 +608,26 @@ let _guardandoIA = false;
 let _guardandoProy = {};
 
 // ── FIREBASE ─────────────────────────────────────────
+let _fbSubscribed = false;
 function initFB(cfg) {
   try {
+    let app;
     if (getApps().length) {
-      // Ya está inicializado, solo reconectar
-      const app = getApps()[0];
-      db = getDatabase(app);
-      subscribe();
-      toast('🔥 Firebase conectado','success');
-      document.getElementById('fbSt').textContent = '✅ Conectado';
-      document.getElementById('fbSt').style.color = 'var(--gr)';
-      return;
+      app = getApps()[0];
+    } else {
+      app = initializeApp(cfg);
     }
-    const app = initializeApp(cfg);
     db = getDatabase(app);
-    subscribe();
+    if (!_fbSubscribed) {
+      _fbSubscribed = true;
+      subscribe();
+    } else {
+      // Ya suscrito, solo re-cargar datos manualmente
+      get(ref(db,'proyectos')).then(s=>{ proys=s.val()||{}; renderAll(); });
+      get(ref(db,'clientes')).then(s=>{ clis=s.val()||{}; renderCli(); });
+      get(ref(db,'usuarios_ia')).then(s=>{ usuarios=s.val()||{}; renderUsuarios(); });
+      get(ref(db,'config/ia')).then(s=>{ if(!_guardandoIA){ iaCfg=s.val()||{}; syncIAui(); } });
+    }
     toast('🔥 Firebase conectado','success');
     document.getElementById('fbSt').textContent = '✅ Conectado';
     document.getElementById('fbSt').style.color = 'var(--gr)';
@@ -1257,17 +1262,19 @@ document.getElementById('lU').addEventListener('keydown',ev=>{ if(ev.key==='Ente
 (function readURLParam() {
   const params = new URLSearchParams(window.location.search);
   const sec = params.get('sec');
-  if (sec) {
-    // Esperar a que el panel esté visible antes de navegar
-    const waitForPanel = setInterval(() => {
-      if (document.getElementById('MP').style.display !== 'none' && document.getElementById('MP').style.display !== '') {
-        clearInterval(waitForPanel);
-        goSec(sec);
-      }
-    }, 100);
-    // Timeout máximo 5 segundos
-    setTimeout(() => clearInterval(waitForPanel), 5000);
-  }
+  if (!sec) return;
+  // Esperar a que Firebase cargue los datos (hasta 8 segundos)
+  let attempts = 0;
+  const waitForPanel = setInterval(() => {
+    attempts++;
+    const mp = document.getElementById('MP');
+    const isVisible = mp && mp.style.display === 'block';
+    if (isVisible) {
+      clearInterval(waitForPanel);
+      setTimeout(() => goSec(sec), 300); // pequeña espera para que Firebase cargue
+    }
+    if (attempts > 80) clearInterval(waitForPanel); // timeout 8s
+  }, 100);
 })();
 
 // ── Auto-login si sesión activa ──────────────────────
