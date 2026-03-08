@@ -636,7 +636,16 @@ function subscribe() {
   if (!db) return;
 
   onValue(ref(db,'proyectos'), s => {
-    proys = s.val()||{};
+    const newData = s.val()||{};
+    // Solo re-renderizar si hay cambio real en datos (no por nuestros propios writes)
+    if (Object.keys(_guardandoProy).length > 0) {
+      // Actualizar datos silenciosamente sin re-renderizar switches
+      proys = newData;
+      renderStats();
+      renderDash();
+      return;
+    }
+    proys = newData;
     renderAll();
   });
 
@@ -962,10 +971,14 @@ window.delP = async function(id) {
 // ── togP — toggle de proyecto con anti-rebote ─────────
 window.togP = async function(id, field, val) {
   if (!db) { toast('Firebase no conectado','error'); return; }
-  _guardandoProy[id+'_'+field] = true;
+  const key = id+'_'+field;
+  _guardandoProy[key] = true;
+  // Actualizar UI inmediatamente para feedback visual
+  proys[id] = proys[id] || {};
+  proys[id][field] = val;
   const upd={}; upd[field]=val;
   await update(ref(db,'proyectos/'+id),upd);
-  setTimeout(()=>delete _guardandoProy[id+'_'+field], 2000);
+  setTimeout(()=>{ delete _guardandoProy[key]; }, 5000);
   const msgs={
     activo:{true:'✅ Activado',false:'🔴 Desactivado'},
     pagado:{true:'💳 Marcado pagado',false:'⚠ Sin pagar'},
@@ -1162,15 +1175,21 @@ window.savePubUrl = function() {
 window.saveIAStatus = async function(field, val) {
   if (!db) { toast('Firebase no conectado','error'); return; }
   _guardandoIA = true;
-  const upd={}; upd[field]=val;
   iaCfg[field] = val; // actualizar local inmediatamente
+  // Actualizar UI de labels antes de guardar
+  if (field==='activa')        document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
+  if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent   = val ? '🔧 En mantenimiento' : '✅ Operando normal';
   try {
+    const upd={}; upd[field]=val;
     await update(ref(db,'config/ia'), upd);
-    if (field==='activa')        document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
-    if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent   = val ? '🔧 En mantenimiento' : '✅ Operando normal';
     toast(val ? '✅ Activado' : '🔴 Desactivado', val ? 'success' : 'info');
+  } catch(e) {
+    toast('❌ Error al guardar: '+e.message, 'error');
+    // Revertir UI si falló
+    iaCfg[field] = !val;
+    syncIAui();
   } finally {
-    setTimeout(()=>{ _guardandoIA=false; }, 2000);
+    setTimeout(()=>{ _guardandoIA=false; }, 6000);
   }
 };
 
