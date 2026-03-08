@@ -200,7 +200,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
 <!-- MÓVIL TOP BAR -->
 <div class="mob-top" style="display:none" id="mobTop">
   <span class="mob-brand" id="mobBrand">SYNAPSE</span>
-  <button class="mob-menu-btn" onclick="toggleSidebar()">☰</button>
+  <a class="mob-menu-btn" href="menu.html" style="text-decoration:none;display:flex;align-items:center;justify-content:center">☰</a>
 </div>
 <div class="sb-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
 
@@ -1233,6 +1233,23 @@ window.closeSidebar = function(){
 // Enter en login
 document.getElementById('lP').addEventListener('keydown',ev=>{ if(ev.key==='Enter') doLogin(); });
 document.getElementById('lU').addEventListener('keydown',ev=>{ if(ev.key==='Enter') document.getElementById('lP').focus(); });
+
+// ── Leer parámetro ?sec= de la URL al cargar ──────────
+(function readURLParam() {
+  const params = new URLSearchParams(window.location.search);
+  const sec = params.get('sec');
+  if (sec) {
+    // Esperar a que el panel esté visible antes de navegar
+    const waitForPanel = setInterval(() => {
+      if (document.getElementById('MP').style.display !== 'none' && document.getElementById('MP').style.display !== '') {
+        clearInterval(waitForPanel);
+        goSec(sec);
+      }
+    }, 100);
+    // Timeout máximo 5 segundos
+    setTimeout(() => clearInterval(waitForPanel), 5000);
+  }
+})();
 
 // ── Auto-login si sesión activa ──────────────────────
 (function checkSession() {
