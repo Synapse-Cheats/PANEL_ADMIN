@@ -437,7 +437,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
             Crea uno en: <strong>GitHub → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</strong><br>
             Activa los permisos: <code style="color:var(--gr)">repo</code> y <code style="color:var(--gr)">workflow</code>
           </div>
-          <div class="fm2"><label>GitHub Personal Access Token</label><input type="password" id="cGH" placeholder="ghp_xxxxxxxxxxxxxxxxxx" value="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"></div>
+          <div class="fm2"><label>GitHub Personal Access Token</label><input type="password" id="cGH" placeholder="ghp_xxxxxxxxxxxxxxxxxx" ></div>
           <button class="btn bh" onclick="saveGH()">🔒 Guardar Token en Firebase</button>
           <span id="ghSt" style="margin-left:12px;font-size:.8rem;color:var(--mu)"></span>
         </div>
@@ -751,6 +751,7 @@ window.goSec = function(n) {
   });
   if (n==='estadisticas') renderCharts();
   if (n==='usuarios') renderUsuarios();
+  if (n==='config') loadGHTokenFromFirebase();
   if (window.innerWidth<=768) closeSidebar();
 };
 
@@ -1140,6 +1141,23 @@ window.saveFB = function() {
   localStorage.setItem('nx_fb',JSON.stringify(cfg));
   initFB(cfg);
 };
+
+// Cargar token desde Firebase al abrir config (nunca se muestra en el HTML)
+async function loadGHTokenFromFirebase() {
+  if (!db) return;
+  try {
+    const s = await get(ref(db,'config/github_token'));
+    const tk = s.val();
+    const el = document.getElementById('cGH');
+    const st = document.getElementById('ghSt');
+    if (tk && el) {
+      el.value = tk;
+      if (st) { st.textContent = '✅ Token cargado desde Firebase'; st.style.color='var(--gr)'; }
+    } else {
+      if (st) { st.textContent = '⚠ Sin token guardado'; st.style.color='var(--ye)'; }
+    }
+  } catch(e) {}
+}
 
 window.saveGH = async function() {
   const tk=get_('cGH').trim();
