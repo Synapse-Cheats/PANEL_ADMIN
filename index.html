@@ -200,7 +200,7 @@ input:checked+.sl2::before{transform:translateX(20px)}
 <!-- MÓVIL TOP BAR -->
 <div class="mob-top" style="display:none" id="mobTop">
   <span class="mob-brand" id="mobBrand">SYNAPSE</span>
-  <a class="mob-menu-btn" href="https://synapse-cheats.github.io/PANEL_ADMIN/menu.html" style="text-decoration:none;display:flex;align-items:center;justify-content:center">☰</a>
+  <a class="mob-menu-btn" href="menu.html" style="text-decoration:none;display:flex;align-items:center;gap:6px;padding:7px 14px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.25);border-radius:9px;color:var(--cy);font-size:.8rem;font-weight:700;letter-spacing:1px">☰ MENÚ</a>
 </div>
 <div class="sb-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
 
@@ -751,7 +751,7 @@ window.goSec = function(n) {
   });
   if (n==='estadisticas') renderCharts();
   if (n==='usuarios') renderUsuarios();
-  if (n==='config') loadGHTokenFromFirebase();
+  if (n==='config') { loadGHTokenFromFirebase(); loadFBCfgForm(); }
   if (window.innerWidth<=768) closeSidebar();
 };
 
@@ -950,7 +950,7 @@ window.openMP = function(id) {
 
 window.saveP = async function() {
   if (!db) { toast('Firebase no conectado','error'); return; }
-  const id=editId||(proys[editId]?editId:'p_'+Date.now());
+  const id = editId || 'p_'+Date.now();
   const d={
     nombre:get_('mpN').trim(), cliente:get_('mpC').trim(), url:get_('mpU').trim(),
     repo:get_('mpR').trim(), ruta:get_('mpRuta').trim(), expira:get_('mpEx'), precio:parseFloat(get_('mpPr'))||0,
@@ -1141,6 +1141,19 @@ window.saveFB = function() {
   localStorage.setItem('nx_fb',JSON.stringify(cfg));
   initFB(cfg);
 };
+
+// Pre-rellenar formulario de Firebase con la config guardada
+function loadFBCfgForm() {
+  const cfg = getSavedFBCfg() || DEF_CFG;
+  if (!cfg) return;
+  set_('c1', cfg.apiKey||'');
+  set_('c2', cfg.authDomain||'');
+  set_('c3', cfg.databaseURL||'');
+  set_('c4', cfg.projectId||'');
+  set_('c5', cfg.storageBucket||'');
+  set_('c6', cfg.messagingSenderId||'');
+  set_('c7', cfg.appId||'');
+}
 
 // Cargar token desde Firebase al abrir config (nunca se muestra en el HTML)
 async function loadGHTokenFromFirebase() {
