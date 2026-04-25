@@ -386,6 +386,16 @@ input:checked+.sl2::before{transform:translateX(20px)}
           </div>
 
           <div style="background:rgba(0,0,0,.3);border:1px solid var(--bd);border-radius:14px;padding:20px">
+            <div style="font-size:1.4rem;margin-bottom:8px">💳</div>
+            <div style="font-weight:700;margin-bottom:4px">Falta de Pago</div>
+            <div style="font-size:.8rem;color:var(--mu);margin-bottom:14px">Muestra aviso de pago pendiente a los clientes</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <label class="sw"><input type="checkbox" id="iaFaltaPago" onchange="saveIAStatus('faltaPago',this.checked)"><span class="sl2"></span></label>
+              <span id="iaFaltaPagoLbl" style="font-size:.85rem;color:var(--mu)">Cargando...</span>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,0,0,.3);border:1px solid var(--bd);border-radius:14px;padding:20px">
             <div style="font-size:1.4rem;margin-bottom:8px">📢</div>
             <div style="font-weight:700;margin-bottom:4px">Mensaje Global</div>
             <div style="font-size:.8rem;color:var(--mu);margin-bottom:10px">Mensaje que verán los clientes al entrar</div>
@@ -683,6 +693,11 @@ function syncIAui() {
   if (mantEl) {
     mantEl.checked = !!iaCfg.mantenimiento;
     document.getElementById('iaMantLbl').textContent = mantEl.checked ? '🔧 En mantenimiento' : '✅ Operando normal';
+    const fpEl = document.getElementById('iaFaltaPago');
+    if (fpEl) {
+      fpEl.checked = !!iaCfg.faltaPago;
+      document.getElementById('iaFaltaPagoLbl').textContent = fpEl.checked ? '💳 Aviso activo' : '✅ Sin aviso de pago';
+    }
   }
   if (msgEl && iaCfg.mensaje) msgEl.value = iaCfg.mensaje;
 }
@@ -1215,6 +1230,7 @@ window.saveIAStatus = async function(field, val) {
   // Actualizar UI de labels antes de guardar
   if (field==='activa')        document.getElementById('iaActivaLbl').textContent = val ? '✅ Activo' : '🔴 Inactivo';
   if (field==='mantenimiento') document.getElementById('iaMantLbl').textContent   = val ? '🔧 En mantenimiento' : '✅ Operando normal';
+  if (field==='faltaPago') { const el=document.getElementById('iaFaltaPagoLbl'); if(el) el.textContent = val ? '💳 Aviso activo' : '✅ Sin aviso de pago'; }
   try {
     const upd={}; upd[field]=val;
     await update(ref(db,'config/ia'), upd);
